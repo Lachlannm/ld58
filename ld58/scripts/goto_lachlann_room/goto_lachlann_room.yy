@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"nat_roomchange",
+  "%Name":"goto_lachlann_room",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"nat_roomchange",
+  "name":"goto_lachlann_room",
   "parent":{
     "name":"button scripts",
     "path":"folders/Scripts/button scripts.yy",

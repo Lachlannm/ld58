@@ -46,18 +46,18 @@ else
 	}	
 }
 
-var rotation = (turn_amount*max_turn_amount*move_speed)/270
+var rotation = (turn_amount*max_turn_amount*move_speed)/42
 centripital = move_speed*sin(rotation)
 
-if abs(centripital) > 8
+if abs(centripital) > 2
 {
 	drift_amount = clamp(drift_amount-rotation*0.5,-80,80)
 	is_drifting = true
 }
 else
 {
-	var max_rotation = (max_turn_amount*move_speed)/270
-	drift_amount = move_toward(drift_amount,0,(max_rotation-abs(rotation))*0.5*-sign(drift_amount))
+	var max_rotation = (max_turn_amount*move_speed)/42
+	drift_amount = move_toward(drift_amount,0,(max_rotation-abs(rotation))*0.5)
 	is_drifting = false
 }
 
@@ -68,4 +68,3 @@ var speed_dir = direction+drift_amount
 
 x += lengthdir_x(move_speed,speed_dir)
 y += lengthdir_y(move_speed,speed_dir)
-
