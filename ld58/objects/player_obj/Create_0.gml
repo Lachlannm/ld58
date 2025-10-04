@@ -25,6 +25,9 @@ centripital = 0
 garbage_stored = 0
 max_garbage = 10
 
+damage = 0
+max_damage = 6
+
 // create the camera that follows the player
 instance_create_layer(0,0,layer,camera_obj)
 

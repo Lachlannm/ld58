@@ -26,3 +26,5 @@ alarm_min = 60
 alarm_max = 120
 alarm_moving_time = 20
 alarm[0] = irandom_range(alarm_min, alarm_max)
+
+colliding = false

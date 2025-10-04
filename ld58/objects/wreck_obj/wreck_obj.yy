@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"Recycling_Bin",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"wreck_obj",
+  "eventList":[],
   "managed":true,
-  "name":"Recycling_Bin",
+  "name":"wreck_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_recycling_bin",
-    "path":"sprites/spr_recycling_bin/spr_recycling_bin.yy",
+    "name":"spr_wreck",
+    "path":"sprites/spr_wreck/spr_wreck.yy",
   },
   "spriteMaskId":null,
   "visible":true,
