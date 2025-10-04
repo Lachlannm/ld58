@@ -47,8 +47,9 @@ else
 }
 
 var rotation = (turn_amount*max_turn_amount*move_speed)/270
+centripital = move_speed*sin(rotation)
 
-if move_speed > 7 and abs(turn_amount*max_turn_amount)/move_speed > 4
+if abs(centripital) > 8
 {
 	drift_amount = clamp(drift_amount-rotation*0.5,-80,80)
 	is_drifting = true
@@ -56,7 +57,7 @@ if move_speed > 7 and abs(turn_amount*max_turn_amount)/move_speed > 4
 else
 {
 	var max_rotation = (max_turn_amount*move_speed)/270
-	drift_amount = move_toward(drift_amount,0,max_rotation-abs(rotation))
+	drift_amount = move_toward(drift_amount,0,(max_rotation-abs(rotation))*0.5*-sign(drift_amount))
 	is_drifting = false
 }
 

@@ -20,6 +20,7 @@ drag = 0.01
 drift_amount = 0
 drift_rate = 0.2
 is_drifting = false
+centripital = 0
 
 var test1 = move_toward(5, 10, 4)	 // Returns 9
 var test2 = move_toward(10, 5, 4)    // Returns 6
