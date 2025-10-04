@@ -37,9 +37,11 @@
   "resources":[
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
+    {"id":{"name":"garbage_test_room","path":"rooms/garbage_test_room/garbage_test_room.yy",},},
     {"id":{"name":"level_room","path":"rooms/level_room/level_room.yy",},},
     {"id":{"name":"loading_room","path":"rooms/loading_room/loading_room.yy",},},
     {"id":{"name":"menu_room","path":"rooms/menu_room/menu_room.yy",},},
+    {"id":{"name":"enter_garbage_test","path":"scripts/enter_garbage_test/enter_garbage_test.yy",},},
     {"id":{"name":"move_toward","path":"scripts/move_toward/move_toward.yy",},},
     {"id":{"name":"start_game","path":"scripts/start_game/start_game.yy",},},
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
@@ -52,6 +54,7 @@
     {"roomId":{"name":"loading_room","path":"rooms/loading_room/loading_room.yy",},},
     {"roomId":{"name":"menu_room","path":"rooms/menu_room/menu_room.yy",},},
     {"roomId":{"name":"level_room","path":"rooms/level_room/level_room.yy",},},
+    {"roomId":{"name":"garbage_test_room","path":"rooms/garbage_test_room/garbage_test_room.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
