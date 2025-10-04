@@ -35,6 +35,7 @@
   },
   "name":"ld58",
   "resources":[
+    {"id":{"name":"Garbage","path":"objects/Garbage/Garbage.yy",},},
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"garbage_test_room","path":"rooms/garbage_test_room/garbage_test_room.yy",},},
@@ -47,7 +48,9 @@
     {"id":{"name":"nat_roomchange","path":"scripts/nat_roomchange/nat_roomchange.yy",},},
     {"id":{"name":"start_game","path":"scripts/start_game/start_game.yy",},},
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
+    {"id":{"name":"garbage_spr","path":"sprites/garbage_spr/garbage_spr.yy",},},
     {"id":{"name":"player_truck_spr","path":"sprites/player_truck_spr/player_truck_spr.yy",},},
+    {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},},
     {"id":{"name":"wheel_spr","path":"sprites/wheel_spr/wheel_spr.yy",},},
   ],
   "resourceType":"GMProject",
