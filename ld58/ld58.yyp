@@ -59,6 +59,7 @@
     {"id":{"name":"nat_roomchange","path":"scripts/nat_roomchange/nat_roomchange.yy",},},
     {"id":{"name":"nick_roomchange","path":"scripts/nick_roomchange/nick_roomchange.yy",},},
     {"id":{"name":"start_game","path":"scripts/start_game/start_game.yy",},},
+    {"id":{"name":"string_format_zeroes","path":"scripts/string_format_zeroes/string_format_zeroes.yy",},},
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
     {"id":{"name":"garbage_collider","path":"sprites/garbage_collider/garbage_collider.yy",},},
     {"id":{"name":"garbage_spr","path":"sprites/garbage_spr/garbage_spr.yy",},},

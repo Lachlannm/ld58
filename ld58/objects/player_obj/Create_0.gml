@@ -46,7 +46,7 @@ function collect_garbage()
 	list = ds_list_create()
 	with collector	
 	{
-		instance_place_list(x,y,Garbage,other.list,false)	
+		instance_place_list(x,y,garbage_obj,other.list,false)	
 	}
 	for (var i = 0; i < ds_list_size(list);i++)
 	{
