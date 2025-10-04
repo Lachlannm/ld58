@@ -35,6 +35,7 @@
   },
   "name":"ld58",
   "resources":[
+    {"id":{"name":"Car_Static_Sideways","path":"objects/Car_Static_Sideways/Car_Static_Sideways.yy",},},
     {"id":{"name":"Garbage","path":"objects/Garbage/Garbage.yy",},},
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
@@ -50,6 +51,9 @@
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
     {"id":{"name":"garbage_spr","path":"sprites/garbage_spr/garbage_spr.yy",},},
     {"id":{"name":"player_truck_spr","path":"sprites/player_truck_spr/player_truck_spr.yy",},},
+    {"id":{"name":"spr_blue_car_sideways","path":"sprites/spr_blue_car_sideways/spr_blue_car_sideways.yy",},},
+    {"id":{"name":"spr_red_car_sideways","path":"sprites/spr_red_car_sideways/spr_red_car_sideways.yy",},},
+    {"id":{"name":"spr_yellow_car_sideways","path":"sprites/spr_yellow_car_sideways/spr_yellow_car_sideways.yy",},},
     {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},},
     {"id":{"name":"wheel_spr","path":"sprites/wheel_spr/wheel_spr.yy",},},
   ],
