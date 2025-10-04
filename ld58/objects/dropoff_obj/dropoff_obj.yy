@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"bg_tile_spr",
+    "path":"sprites/bg_tile_spr/bg_tile_spr.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

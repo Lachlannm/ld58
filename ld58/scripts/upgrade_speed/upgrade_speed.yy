@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"nick_roomchange",
+  "%Name":"upgrade_speed",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"nick_roomchange",
+  "name":"upgrade_speed",
   "parent":{
-    "name":"button scripts",
-    "path":"folders/Scripts/button scripts.yy",
+    "name":"upgrade scripts",
+    "path":"folders/Scripts/upgrade scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
