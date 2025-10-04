@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"nat_roomchange",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"nat_roomchange",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
