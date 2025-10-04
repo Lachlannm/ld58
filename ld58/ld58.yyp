@@ -65,6 +65,7 @@
     {"id":{"name":"player_truck_spr","path":"sprites/player_truck_spr/player_truck_spr.yy",},},
     {"id":{"name":"spr_blue_car_sideways","path":"sprites/spr_blue_car_sideways/spr_blue_car_sideways.yy",},},
     {"id":{"name":"spr_destroyed_recycling_bin","path":"sprites/spr_destroyed_recycling_bin/spr_destroyed_recycling_bin.yy",},},
+    {"id":{"name":"spr_explosion","path":"sprites/spr_explosion/spr_explosion.yy",},},
     {"id":{"name":"spr_recycling_bin","path":"sprites/spr_recycling_bin/spr_recycling_bin.yy",},},
     {"id":{"name":"spr_red_car_sideways","path":"sprites/spr_red_car_sideways/spr_red_car_sideways.yy",},},
     {"id":{"name":"spr_yellow_car_sideways","path":"sprites/spr_yellow_car_sideways/spr_yellow_car_sideways.yy",},},
