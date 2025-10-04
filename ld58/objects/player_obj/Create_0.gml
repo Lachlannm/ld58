@@ -25,6 +25,12 @@ centripital = 0
 garbage_stored = 0
 max_garbage = 10
 
+// create the camera that follows the player
+instance_create_layer(0,0,layer,camera_obj)
+
+//garbage collector
+collector = instance_create_layer(x,y,layer,garbage_collector_obj)
+
 function increment_garbage(_value)
 {
 	if garbage_stored+_value < max_garbage
@@ -35,5 +41,20 @@ function increment_garbage(_value)
 	return false
 }
 
-// create the camera that follows the player
-instance_create_layer(0,0,layer,camera_obj)
+function collect_garbage()
+{
+	list = ds_list_create()
+	with collector	
+	{
+		instance_place_list(x,y,Garbage,other.list,false)	
+	}
+	for (var i = 0; i < ds_list_size(list);i++)
+	{
+		var inst = ds_list_find_value(list,i)
+		if increment_garbage(inst.collection_value)
+		{
+			instance_destroy(inst)	
+		}
+	}
+	ds_list_destroy(list)
+}

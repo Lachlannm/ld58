@@ -61,6 +61,11 @@ else
 	is_drifting = false
 }
 
+if keyboard_check_pressed(vk_space)
+{
+	collect_garbage()	
+}
+
 direction += rotation
 image_angle = direction
 
@@ -68,3 +73,7 @@ var speed_dir = direction+drift_amount
 
 x += lengthdir_x(move_speed,speed_dir)
 y += lengthdir_y(move_speed,speed_dir)
+
+collector.x = x
+collector.y = y
+collector.image_angle = image_angle
