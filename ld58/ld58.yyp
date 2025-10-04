@@ -39,7 +39,8 @@
   "resources":[
     {"id":{"name":"camera_obj","path":"objects/camera_obj/camera_obj.yy",},},
     {"id":{"name":"Car_Static_Sideways","path":"objects/Car_Static_Sideways/Car_Static_Sideways.yy",},},
-    {"id":{"name":"Garbage","path":"objects/Garbage/Garbage.yy",},},
+    {"id":{"name":"game_controller","path":"objects/game_controller/game_controller.yy",},},
+    {"id":{"name":"garbage_obj","path":"objects/garbage_obj/garbage_obj.yy",},},
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"garbage_test_room","path":"rooms/garbage_test_room/garbage_test_room.yy",},},

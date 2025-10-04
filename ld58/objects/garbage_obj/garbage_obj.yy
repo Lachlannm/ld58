@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"Garbage",
+  "%Name":"garbage_obj",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Garbage",
+  "name":"garbage_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
