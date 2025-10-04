@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"enter_garbage_test",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"button scripts",
+    "path":"folders/Scripts/button scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

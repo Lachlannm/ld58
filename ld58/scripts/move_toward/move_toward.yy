@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"move_toward",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"utility",
+    "path":"folders/Scripts/utility.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
