@@ -13,6 +13,10 @@
     {"name":"inst_63A518BE","path":"rooms/nat_room_1/nat_room_1.yy",},
     {"name":"inst_1A7E6D3F","path":"rooms/nat_room_1/nat_room_1.yy",},
     {"name":"inst_244FBD11","path":"rooms/nat_room_1/nat_room_1.yy",},
+    {"name":"inst_67B81412","path":"rooms/nat_room_1/nat_room_1.yy",},
+    {"name":"inst_553C46A","path":"rooms/nat_room_1/nat_room_1.yy",},
+    {"name":"inst_4D5EBE44","path":"rooms/nat_room_1/nat_room_1.yy",},
+    {"name":"inst_4C633A98","path":"rooms/nat_room_1/nat_room_1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -32,8 +36,12 @@
         {"$GMRInstance":"v2","%Name":"inst_244FBD11","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_244FBD11","objectId":{"name":"Car_Static_Sideways","path":"objects/Car_Static_Sideways/Car_Static_Sideways.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"Car_Static_Sideways","path":"objects/Car_Static_Sideways/Car_Static_Sideways.yy",},"propertyId":{"name":"forward_direction","path":"objects/Car_Static_Sideways/Car_Static_Sideways.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"90",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1056.0,"y":384.0,},
+        {"$GMRInstance":"v2","%Name":"inst_67B81412","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_67B81412","objectId":{"name":"Recycling_Bin","path":"objects/Recycling_Bin/Recycling_Bin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":928.0,"y":224.0,},
+        {"$GMRInstance":"v2","%Name":"inst_553C46A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_553C46A","objectId":{"name":"Recycling_Bin","path":"objects/Recycling_Bin/Recycling_Bin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":928.0,"y":288.0,},
+        {"$GMRInstance":"v2","%Name":"inst_4D5EBE44","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4D5EBE44","objectId":{"name":"Recycling_Bin","path":"objects/Recycling_Bin/Recycling_Bin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":928.0,"y":352.0,},
+        {"$GMRInstance":"v2","%Name":"inst_4C633A98","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4C633A98","objectId":{"name":"Recycling_Bin","path":"objects/Recycling_Bin/Recycling_Bin.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":224.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],
   "name":"nat_room_1",
   "parent":{

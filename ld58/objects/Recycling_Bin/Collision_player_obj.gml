@@ -1,0 +1,1 @@
+sprite_index = spr_destroyed_recycling_bin
