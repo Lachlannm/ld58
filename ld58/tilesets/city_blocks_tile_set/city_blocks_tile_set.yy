@@ -1,0 +1,40 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"city_blocks_tile_set",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"city_street_tiles","closed_edge":false,"name":"city_street_tiles","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[0,10,2,3,9,11,8,1,1,8,11,9,3,2,10,4,],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"city_blocks_tile_set",
+  "out_columns":4,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Tile Sets",
+    "path":"folders/Tile Sets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"city_streets_tiles",
+    "path":"sprites/city_streets_tiles/city_streets_tiles.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":128,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":128,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":16,
+}
