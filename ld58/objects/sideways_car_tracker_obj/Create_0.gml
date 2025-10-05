@@ -1,0 +1,1 @@
+object_spawn(sideways_car_spawnpoint_obj, total_sideways_car_ratio, Car_Static_Sideways);

@@ -1,0 +1,1 @@
+object_spawn(recycling_bin_spawnpoint_obj, total_recycling_bin_ratio, Recycling_Bin);
