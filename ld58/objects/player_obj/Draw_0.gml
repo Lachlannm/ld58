@@ -14,3 +14,8 @@ draw_text(x,y+40,"damage = " + string(damage))
 //draw_text(x,y+60,"turn = " + string(turn_amount))
 //draw_text(x,y+80,"drifting = " + string(drift_amount))
 //draw_text(x,y+100,"centripital = " + string(centripital))
+
+var sprite_direction_id = floor( ((direction + 22.5) % 360)/45 )
+var experimental_sprite_rotation = ((direction + 22.5) % 45) - 22.5
+//draw_sprite(spr_directional_truck,sprite_direction_id,x,y-40)
+draw_sprite_ext(spr_directional_truck,sprite_direction_id,x,y,1,1,experimental_sprite_rotation,c_white,1)
