@@ -105,6 +105,19 @@ image_angle = direction
 
 var speed_dir = direction+drift_amount
 
+if(place_meeting(x+lengthdir_x(move_speed,speed_dir),y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj))
+{
+	direction -= rotation
+	image_angle = direction
+	if(can_crash_again)
+	{
+		damage += 1
+		alarm[0] = 100
+		can_crash_again = false
+	}
+	move_speed = 0
+}
+
 x += lengthdir_x(move_speed,speed_dir)
 y += lengthdir_y(move_speed,speed_dir)
 

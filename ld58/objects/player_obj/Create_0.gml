@@ -11,6 +11,7 @@ max_speed = 3
 
 //nathaniel edit
 max_reverse_speed = -0.5
+can_crash_again = true
 //end edit
 
 turn_speed = 0.1
