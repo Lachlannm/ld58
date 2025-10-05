@@ -61,3 +61,8 @@ function collect_garbage()
 	}
 	ds_list_destroy(list)
 }
+//Upgrade stats
+brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
+gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
+max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
+max_speed = global.upgrade_speed.speed_level[global.upgrade_speed.level]
