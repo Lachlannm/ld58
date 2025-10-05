@@ -47,6 +47,8 @@
     {"id":{"name":"game_over_obj","path":"objects/game_over_obj/game_over_obj.yy",},},
     {"id":{"name":"garbage_collector_obj","path":"objects/garbage_collector_obj/garbage_collector_obj.yy",},},
     {"id":{"name":"garbage_obj","path":"objects/garbage_obj/garbage_obj.yy",},},
+    {"id":{"name":"garbage_spawnpoint_obj","path":"objects/garbage_spawnpoint_obj/garbage_spawnpoint_obj.yy",},},
+    {"id":{"name":"garbage_tracker_test_obj","path":"objects/garbage_tracker_test_obj/garbage_tracker_test_obj.yy",},},
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"Recycling_Bin","path":"objects/Recycling_Bin/Recycling_Bin.yy",},},
