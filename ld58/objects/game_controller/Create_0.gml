@@ -1,3 +1,4 @@
+
 //Create some garbage
 garbage_layer = layer_create(-100,"garbage_lyr")
 for (var i=0; i<initial_garbage_count; i++)
