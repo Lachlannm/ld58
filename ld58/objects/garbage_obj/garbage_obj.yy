@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"garbage_obj",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"garbage_obj",
   "overriddenProperties":[],
@@ -35,9 +33,6 @@
     "name":"garbage_spr",
     "path":"sprites/garbage_spr/garbage_spr.yy",
   },
-  "spriteMaskId":{
-    "name":"player_truck_spr",
-    "path":"sprites/player_truck_spr/player_truck_spr.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }

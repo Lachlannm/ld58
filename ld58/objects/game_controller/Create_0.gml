@@ -1,14 +1,27 @@
 
 //Create some garbage
+total_garbage_ratio = 0.75
+
 garbage_layer = layer_create(-100,"garbage_lyr")
-for (var i=0; i<initial_garbage_count; i++)
+garbage_spawnpoints = []
+num_garbage_spawnpoints = instance_number(garbage_spawnpoint_obj)
+num_garbage_to_spawn = floor(total_garbage_ratio * num_garbage_spawnpoints)
+
+for(var i = 0; i < num_garbage_spawnpoints; i++)
 {
-	var x_coord = random_range(0,room_width);
-	var y_coord = random_range(0,room_height);
-	instance_create_layer(x_coord, y_coord, garbage_layer, garbage_obj);
+	array_push(garbage_spawnpoints, instance_find(garbage_spawnpoint_obj, i))
 }
 
-time = 2000
+garbage_spawnpoints = array_shuffle(garbage_spawnpoints)
+
+for(var i = 0; i < num_garbage_to_spawn; i++)
+{
+	var spawnpoint = array_pop(garbage_spawnpoints)
+	instance_create_layer(spawnpoint.x,spawnpoint.y,"Instances",garbage_obj)
+}
+instance_destroy(garbage_spawnpoint_obj)
+
+time = 7200
 colour = c_white
 start_colour = c_white
 end_colour = make_color_rgb(70,50,60)
@@ -22,6 +35,9 @@ command_list = ds_map_keys_to_array(global.command_data)
 command_amount = array_length(command_list)
 menu_state = "none"
 global.paused = 0
+
+depot_distance = 0
+depot_direction = 0
 
 function console_command()
 {

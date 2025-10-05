@@ -10,6 +10,9 @@ if time > 0
 	}
 }
 
+depot_distance = point_distance(player_obj.x,player_obj.y,dropoff_obj.x,dropoff_obj.y)
+depot_direction = point_direction(player_obj.x,player_obj.y,dropoff_obj.x,dropoff_obj.y)
+
 // pause menu
 if keyboard_check_pressed(vk_escape)
 {

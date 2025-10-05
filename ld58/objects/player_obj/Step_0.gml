@@ -69,7 +69,7 @@ if abs(centripital) > 2
 else
 {
 	var max_rotation = (max_turn_amount*move_speed)/42
-	drift_amount = move_toward(drift_amount,0,(max_rotation-abs(rotation))*0.5)
+	drift_amount = move_toward(drift_amount,0,(max_rotation-abs(rotation))*0.5+0.2)
 	is_drifting = false
 }
 

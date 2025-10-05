@@ -27,7 +27,7 @@ is_drifting = false
 centripital = 0
 
 garbage_stored = 0
-max_garbage = 10
+max_garbage = 20
 
 damage = 0
 max_damage = 6
@@ -40,7 +40,7 @@ collector = instance_create_layer(x,y,layer,garbage_collector_obj)
 
 function increment_garbage(_value)
 {
-	if garbage_stored+_value < max_garbage
+	if garbage_stored+_value <= max_garbage
 	{
 		garbage_stored += _value
 		return true
