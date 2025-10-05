@@ -19,7 +19,19 @@ else
 	brake_amount = clamp(brake_amount-brake_rate,0,1)
 }
 
-move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - move_drag*move_speed*gas_pressed - drag*!gas_pressed,0,max_speed)
+//nathaniel edit
+//move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - move_drag*move_speed*gas_pressed - drag*!gas_pressed,0,max_speed)
+var moving_drag_term = move_drag*move_speed*gas_pressed
+var drag_term = drag*!gas_pressed
+if move_speed < 0
+{
+	moving_drag_term *= -1
+	drag_term *= -1
+}
+move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - moving_drag_term - drag_term,max_reverse_speed,max_speed)
+if abs(move_speed) < 0.01 && !gas_pressed && !brake_pressed {move_speed = 0}
+//end
+
 if keyboard_check(ord("A"))
 {
 	turn_amount = clamp(turn_amount+turn_rate,-1,1)

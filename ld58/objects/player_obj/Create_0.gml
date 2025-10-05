@@ -9,6 +9,10 @@ brake_strength = 0.008
 move_speed = 0
 max_speed = 3
 
+//nathaniel edit
+max_reverse_speed = -0.5
+//end edit
+
 turn_speed = 0.1
 turn_amount = 0
 turn_rate = 0.02
