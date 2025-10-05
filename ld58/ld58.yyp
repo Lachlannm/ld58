@@ -64,6 +64,7 @@
     {"id":{"name":"nat_room_1","path":"rooms/nat_room_1/nat_room_1.yy",},},
     {"id":{"name":"nick_room_1","path":"rooms/nick_room_1/nick_room_1.yy",},},
     {"id":{"name":"upgrade_room","path":"rooms/upgrade_room/upgrade_room.yy",},},
+    {"id":{"name":"zshandi_room_1","path":"rooms/zshandi_room_1/zshandi_room_1.yy",},},
     {"id":{"name":"command_arg","path":"scripts/command_arg/command_arg.yy",},},
     {"id":{"name":"command","path":"scripts/command/command.yy",},},
     {"id":{"name":"enter_garbage_test","path":"scripts/enter_garbage_test/enter_garbage_test.yy",},},
@@ -83,6 +84,7 @@
     {"id":{"name":"upgrade_map","path":"scripts/upgrade_map/upgrade_map.yy",},},
     {"id":{"name":"upgrade_speed","path":"scripts/upgrade_speed/upgrade_speed.yy",},},
     {"id":{"name":"upgrade_test_button","path":"scripts/upgrade_test_button/upgrade_test_button.yy",},},
+    {"id":{"name":"zshandi_roomchange","path":"scripts/zshandi_roomchange/zshandi_roomchange.yy",},},
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
     {"id":{"name":"city_streets_tiles","path":"sprites/city_streets_tiles/city_streets_tiles.yy",},},
     {"id":{"name":"garbage_collider","path":"sprites/garbage_collider/garbage_collider.yy",},},
@@ -114,6 +116,7 @@
     {"roomId":{"name":"nick_room_1","path":"rooms/nick_room_1/nick_room_1.yy",},},
     {"roomId":{"name":"upgrade_room","path":"rooms/upgrade_room/upgrade_room.yy",},},
     {"roomId":{"name":"game_over","path":"rooms/game_over/game_over.yy",},},
+    {"roomId":{"name":"zshandi_room_1","path":"rooms/zshandi_room_1/zshandi_room_1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

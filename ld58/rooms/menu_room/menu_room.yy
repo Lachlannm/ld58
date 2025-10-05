@@ -12,6 +12,7 @@
     {"name":"inst_7765753","path":"rooms/menu_room/menu_room.yy",},
     {"name":"inst_5185E2A1","path":"rooms/menu_room/menu_room.yy",},
     {"name":"inst_A84FE69","path":"rooms/menu_room/menu_room.yy",},
+    {"name":"inst_47BEE43A","path":"rooms/menu_room/menu_room.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -36,6 +37,10 @@
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Text","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Nat Test Room",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button_Release","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"nat_roomchange",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1696.0,"y":832.0,},
+        {"$GMRInstance":"v2","%Name":"inst_47BEE43A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_47BEE43A","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"properties":[
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Text","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Zshandi Test Room",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button_Release","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"zshandi_roomchange",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1664.0,"y":544.0,},
         {"$GMRInstance":"v2","%Name":"inst_7765753","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7765753","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Text","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Lachlann",},
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button_Release","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"goto_lachlann_room",},
