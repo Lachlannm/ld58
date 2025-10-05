@@ -185,12 +185,16 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         //if ((tile_dirs & required_dir) != required_dir) continue;
         if (tile_dirs != required_dir) continue;
 
-        // Can't have neighboring intersections
-        if (neighbor_intersection && (global.road_connections[i] & DIR.INTERSECTION)) continue;
+		// Only prevent 4-way intersections from being adjacent to any intersection
+        var is_four_way = (global.road_connections[i] & dir_mask) == 15; // All 4 directions
+		if (neighbor_intersection && is_four_way) continue;
         
+		show_debug_message("ADDING VALID TILE: " + string(i) + " with dirs: " + string(tile_dirs));
         array_push(valid_tiles, i);
     }
-    
+
+	show_debug_message("Total valid tiles found: " + string(array_length(valid_tiles)));
+
     // Pick a random tile from valid options
     if (array_length(valid_tiles) > 0) {
         return valid_tiles[irandom(array_length(valid_tiles) - 1)];
