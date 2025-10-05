@@ -1,8 +1,9 @@
 function upgrade_speed(){
-	if global.cash >= global.upgrade_speed.cost
+	if global.cash >= global.upgrade_speed.cost && global.upgrade_speed.level < 3
 	{
 		global.upgrade_speed.level += 1
 		global.cash -= global.upgrade_speed.cost
-		global.upgrade_speed.cost += 50	
+		global.upgrade_speed.cost += 50
+		show_debug_message("Speed Upgraded")
 	}
 }

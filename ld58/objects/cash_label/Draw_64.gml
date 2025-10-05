@@ -1,1 +1,1 @@
-draw_text(10, 10, global.cash)
+draw_text(50, 50, string(global.cash))
