@@ -111,6 +111,7 @@
     {"id":{"name":"spr_explosion","path":"sprites/spr_explosion/spr_explosion.yy",},},
     {"id":{"name":"spr_game_over","path":"sprites/spr_game_over/spr_game_over.yy",},},
     {"id":{"name":"spr_placeholder_building","path":"sprites/spr_placeholder_building/spr_placeholder_building.yy",},},
+    {"id":{"name":"spr_recycling_bin_spawnpoint","path":"sprites/spr_recycling_bin_spawnpoint/spr_recycling_bin_spawnpoint.yy",},},
     {"id":{"name":"spr_recycling_bin","path":"sprites/spr_recycling_bin/spr_recycling_bin.yy",},},
     {"id":{"name":"spr_red_car_sideways","path":"sprites/spr_red_car_sideways/spr_red_car_sideways.yy",},},
     {"id":{"name":"spr_red_car_upndown","path":"sprites/spr_red_car_upndown/spr_red_car_upndown.yy",},},

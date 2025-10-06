@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_recycling_bin_spawnpoint",
+    "path":"sprites/spr_recycling_bin_spawnpoint/spr_recycling_bin_spawnpoint.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
