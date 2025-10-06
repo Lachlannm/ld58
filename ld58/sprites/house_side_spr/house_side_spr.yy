@@ -82,6 +82,9 @@
   },
   "swatchColours":null,
   "swfPrecision":0.5,
+  "tags":[
+    "buildings_sprites",
+  ],
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",

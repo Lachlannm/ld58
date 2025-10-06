@@ -92,7 +92,7 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         if (west_tile == road_tiles_e.ROAD_TILE_UNSET || 
             global.road_connections[west_tile] & DIR.EAST) {
             required_dir |= DIR.WEST;
-			show_debug_message("Needs west");
+			//show_debug_message("Needs west");
         }
     }
     
@@ -102,7 +102,7 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         if (east_tile == road_tiles_e.ROAD_TILE_UNSET || 
             global.road_connections[east_tile] & DIR.WEST) {
             required_dir |= DIR.EAST;
-			show_debug_message("Needs east");
+			//show_debug_message("Needs east");
         }
     }
     
@@ -112,7 +112,7 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         if (north_tile == road_tiles_e.ROAD_TILE_UNSET || 
             global.road_connections[north_tile] & DIR.SOUTH) {
             required_dir |= DIR.NORTH;
-			show_debug_message("Needs north");
+			//show_debug_message("Needs north");
         }
     }
     
@@ -122,44 +122,44 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         if (south_tile == road_tiles_e.ROAD_TILE_UNSET || 
             global.road_connections[south_tile] & DIR.NORTH) {
             required_dir |= DIR.SOUTH;
-			show_debug_message("Needs south");
+			//show_debug_message("Needs south");
         }
     }
 
     var neighbor_intersection = false;
 	if (north_tile != road_tiles_e.ROAD_TILE_UNSET && global.road_connections[north_tile] & DIR.INTERSECTION) {
-		show_debug_message("north neighbor is intersection");
+		//show_debug_message("north neighbor is intersection");
 		neighbor_intersection = true;
 	}
 	if (south_tile != road_tiles_e.ROAD_TILE_UNSET && global.road_connections[south_tile] & DIR.INTERSECTION) {
-		show_debug_message("south_tile neighbor is intersection");
+		//show_debug_message("south_tile neighbor is intersection");
 		neighbor_intersection = true;
 	}
 	if (east_tile != road_tiles_e.ROAD_TILE_UNSET && global.road_connections[east_tile] & DIR.INTERSECTION) {
-		show_debug_message("east_tile neighbor is intersection");
+		//show_debug_message("east_tile neighbor is intersection");
 		neighbor_intersection = true;
 	}
 	if (west_tile != road_tiles_e.ROAD_TILE_UNSET && global.road_connections[west_tile] & DIR.INTERSECTION) {
-		show_debug_message("west_tile neighbor is intersection");
+		//show_debug_message("west_tile neighbor is intersection");
 		neighbor_intersection = true;
 	}
 
 
 	if (north_tile == road_tiles_e.ROAD_TILE_UNSET)
 	{
-		show_debug_message("north_tile unset");
+		//show_debug_message("north_tile unset");
 	}
 	if (south_tile == road_tiles_e.ROAD_TILE_UNSET)
 	{
-		show_debug_message("south_tile unset");
+		//show_debug_message("south_tile unset");
 	}
 	if (east_tile == road_tiles_e.ROAD_TILE_UNSET)
 	{
-		show_debug_message("east_tile unset");
+		//show_debug_message("east_tile unset");
 	}
 	if (west_tile == road_tiles_e.ROAD_TILE_UNSET)
 	{
-		show_debug_message("west_tile unset");
+		//show_debug_message("west_tile unset");
 	}
 
     //if ((north_tile != road_tiles_e.ROAD_TILE_UNSET && global.road_connections[north_tile] & DIR.INTERSECTION) || 
@@ -173,13 +173,13 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
     var valid_tiles = [];
     var dir_mask = DIR.NORTH | DIR.SOUTH | DIR.EAST | DIR.WEST;
 
-	show_debug_message("Required dir: " + string(required_dir));
-    show_debug_message("Neighbor intersection: " + string(neighbor_intersection));
+	//show_debug_message("Required dir: " + string(required_dir));
+   // show_debug_message("Neighbor intersection: " + string(neighbor_intersection));
     
     for (var i = 0; i < road_tiles_e.ROAD_TILE_COUNT; i++) {
         var tile_dirs = global.road_connections[i] & dir_mask;
         
-		show_debug_message("Tile Dirs: " + string(tile_dirs) + ", Required: " + string(required_dir) + ", is intersection " + string(global.road_connections[i] & DIR.INTERSECTION));
+		//show_debug_message("Tile Dirs: " + string(tile_dirs) + ", Required: " + string(required_dir) + ", is intersection " + string(global.road_connections[i] & DIR.INTERSECTION));
 
         // Must have all required directions
         //if ((tile_dirs & required_dir) != required_dir) continue;
@@ -189,11 +189,11 @@ function pick_road_tiles(x_index, y_index, arr_w, arr_l) {
         var is_four_way = (global.road_connections[i] & dir_mask) == 15; // All 4 directions
 		if (neighbor_intersection && is_four_way) continue;
         
-		show_debug_message("ADDING VALID TILE: " + string(i) + " with dirs: " + string(tile_dirs));
+		//show_debug_message("ADDING VALID TILE: " + string(i) + " with dirs: " + string(tile_dirs));
         array_push(valid_tiles, i);
     }
 
-	show_debug_message("Total valid tiles found: " + string(array_length(valid_tiles)));
+	//show_debug_message("Total valid tiles found: " + string(array_length(valid_tiles)));
 
     // Pick a random tile from valid options
     if (array_length(valid_tiles) > 0) {

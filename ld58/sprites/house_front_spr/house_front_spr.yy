@@ -22,7 +22,26 @@
     {"$GMImageLayer":"","%Name":"5cd5c22f-4c31-48e4-a0df-0085294456b0","blendMode":0,"displayName":"default","isLocked":false,"name":"5cd5c22f-4c31-48e4-a0df-0085294456b0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"house_front_spr",
-  "nineSlice":null,
+  "nineSlice":{
+    "$GMNineSliceData":"",
+    "bottom":0,
+    "enabled":false,
+    "guideColour":[4294902015,4294902015,4294902015,4294902015,],
+    "highlightColour":1728023040,
+    "highlightStyle":0,
+    "left":0,
+    "resourceType":"GMNineSliceData",
+    "resourceVersion":"2.0",
+    "right":0,
+    "tileMode":[
+      0,
+      0,
+      0,
+      0,
+      0,
+    ],
+    "top":0,
+  },
   "origin":0,
   "parent":{
     "name":"buildings_sprites",
@@ -82,6 +101,9 @@
   },
   "swatchColours":null,
   "swfPrecision":0.5,
+  "tags":[
+    "buildings_sprites",
+  ],
   "textureGroupId":{
     "name":"Default",
     "path":"texturegroups/Default",
