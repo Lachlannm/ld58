@@ -103,6 +103,7 @@
     {"id":{"name":"garbage_collider","path":"sprites/garbage_collider/garbage_collider.yy",},},
     {"id":{"name":"garbage_spr","path":"sprites/garbage_spr/garbage_spr.yy",},},
     {"id":{"name":"house_front_spr","path":"sprites/house_front_spr/house_front_spr.yy",},},
+    {"id":{"name":"house_side_spr","path":"sprites/house_side_spr/house_side_spr.yy",},},
     {"id":{"name":"mike_wohouski_spr","path":"sprites/mike_wohouski_spr/mike_wohouski_spr.yy",},},
     {"id":{"name":"player_truck_spr","path":"sprites/player_truck_spr/player_truck_spr.yy",},},
     {"id":{"name":"spr_bg_game_over","path":"sprites/spr_bg_game_over/spr_bg_game_over.yy",},},
