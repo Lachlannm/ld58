@@ -76,7 +76,7 @@ else if not ((turning_left or turning_right) and abs(turn_amount) > 0.2) or move
 	{
 		is_drifting = false
 		
-		move_speed = max(move_speed, 2.7)
+		move_speed = max(move_speed, 2.3)
 	}
 }
 

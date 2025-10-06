@@ -24,10 +24,10 @@ drag = 0.005
 
 drift_amount = 0
 drift_rate = 0.2
-drift_start_threshold = 2.4
-drift_start_speed = 2.6
-drift_stop_threshold = 1.8
-drift_stop_speed = 1.9
+drift_start_threshold = 1.8
+drift_start_speed = 2.1
+drift_stop_threshold = 1.7
+drift_stop_speed = 1.8
 drift_exit_boost = 0.3
 is_drifting = false
 centripital = 0
