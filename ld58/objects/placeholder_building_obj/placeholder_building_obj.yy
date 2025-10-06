@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_placeholder_building",
-    "path":"sprites/spr_placeholder_building/spr_placeholder_building.yy",
+    "name":"house_front_spr",
+    "path":"sprites/house_front_spr/house_front_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,
