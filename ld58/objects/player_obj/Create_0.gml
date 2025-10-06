@@ -1,6 +1,7 @@
 gas_rate = 0.015
 gas_amount = 0
 gas_strength = 0.01
+move_force_current = 0
 
 brake_rate = 0.02
 brake_amount = 0

@@ -33,6 +33,7 @@ if move_speed < 0
 move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - moving_drag_term - drag_term,max_reverse_speed,max_speed)
 if abs(move_speed) < 0.01 && !gas_pressed && !brake_pressed {move_speed = 0}
 //end
+move_speed = point_distance(0, 0, phy_linear_velocity_x, phy_linear_velocity_y);
 
 if turning_left
 {
@@ -107,7 +108,7 @@ var speed_dir = phy_rotation+drift_amount
 //	move_speed = 0
 //}
 
-var move_force_current = (gas_amount*gas_strength - brake_amount*brake_strength)*50
+move_force_current = (gas_amount*gas_strength - brake_amount*brake_strength)*5000
 var force_x = lengthdir_x(move_force_current,phy_rotation)
 var force_y = lengthdir_y(move_force_current,phy_rotation)
 
