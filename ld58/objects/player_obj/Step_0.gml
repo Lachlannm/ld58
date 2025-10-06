@@ -105,7 +105,7 @@ image_angle = direction
 
 var speed_dir = direction+drift_amount
 
-if(place_meeting(x+lengthdir_x(move_speed,speed_dir),y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj))
+if(place_meeting(x+lengthdir_x(move_speed,speed_dir),y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj) and move_speed > 0.3)
 {
 	direction -= rotation
 	image_angle = direction
