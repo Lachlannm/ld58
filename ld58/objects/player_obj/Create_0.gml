@@ -33,7 +33,7 @@ is_drifting = false
 centripital = 0
 
 drift_particle_sys = part_system_create()
-part_system_depth(drift_particle_sys, 10);
+part_system_depth(drift_particle_sys, 150)
 drift_part = part_type_create()
 part_type_sprite(drift_part, drift, false, false, false)
 part_type_life(drift_part, 1000, 1000)
