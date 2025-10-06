@@ -3,6 +3,9 @@ gas_amount = 0
 gas_strength = 0.01
 move_force_current = 0
 
+sprite_direction_id = 0
+rotation = 0
+
 brake_rate = 0.02
 brake_amount = 0
 brake_strength = 0.008
