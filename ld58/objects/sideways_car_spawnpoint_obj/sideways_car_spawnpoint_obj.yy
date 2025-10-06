@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_sideways_car_spawnpoint",
+    "path":"sprites/spr_sideways_car_spawnpoint/spr_sideways_car_spawnpoint.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

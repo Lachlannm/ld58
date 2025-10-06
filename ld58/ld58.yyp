@@ -117,6 +117,8 @@
     {"id":{"name":"spr_recycling_bin","path":"sprites/spr_recycling_bin/spr_recycling_bin.yy",},},
     {"id":{"name":"spr_red_car_sideways","path":"sprites/spr_red_car_sideways/spr_red_car_sideways.yy",},},
     {"id":{"name":"spr_red_car_upndown","path":"sprites/spr_red_car_upndown/spr_red_car_upndown.yy",},},
+    {"id":{"name":"spr_sideways_car_spawnpoint","path":"sprites/spr_sideways_car_spawnpoint/spr_sideways_car_spawnpoint.yy",},},
+    {"id":{"name":"spr_upndown_car_spawnpoint","path":"sprites/spr_upndown_car_spawnpoint/spr_upndown_car_spawnpoint.yy",},},
     {"id":{"name":"spr_wreck","path":"sprites/spr_wreck/spr_wreck.yy",},},
     {"id":{"name":"spr_yellow_car_sideways","path":"sprites/spr_yellow_car_sideways/spr_yellow_car_sideways.yy",},},
     {"id":{"name":"spr_yellow_car_upndown","path":"sprites/spr_yellow_car_upndown/spr_yellow_car_upndown.yy",},},

@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_upndown_car_spawnpoint",
+    "path":"sprites/spr_upndown_car_spawnpoint/spr_upndown_car_spawnpoint.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
