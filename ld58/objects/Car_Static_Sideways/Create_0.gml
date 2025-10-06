@@ -8,7 +8,7 @@ switch(irandom(2))
 		sprite_index = spr_red_car_sideways; break;
 }
 
-max_speed = 2
+max_speed = 1
 
 reverse_direction = (forward_direction - 180) % 360;
 
@@ -22,11 +22,11 @@ enum CarState
 
 car_state = CarState.Idle_Origin
 
-alarm_min_parking = 240
-alarm_max_parking = 480
-alarm_min_road = 60
-alarm_max_road = 90
-alarm_moving_time = 50
+alarm_min_parking = 360
+alarm_max_parking = 600
+alarm_min_road = 30
+alarm_max_road = 60
+alarm_moving_time = 100
 alarm[0] = irandom_range(alarm_min_parking, alarm_max_parking)
 
 colliding = false
