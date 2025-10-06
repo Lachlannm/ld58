@@ -56,6 +56,7 @@
     {"id":{"name":"garbage_spawnpoint_obj","path":"objects/garbage_spawnpoint_obj/garbage_spawnpoint_obj.yy",},},
     {"id":{"name":"garbage_tracker_test_obj","path":"objects/garbage_tracker_test_obj/garbage_tracker_test_obj.yy",},},
     {"id":{"name":"loader_obj","path":"objects/loader_obj/loader_obj.yy",},},
+    {"id":{"name":"Object24","path":"objects/Object24/Object24.yy",},},
     {"id":{"name":"placeholder_building_obj","path":"objects/placeholder_building_obj/placeholder_building_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"recycling_bin_spawnpoint_obj","path":"objects/recycling_bin_spawnpoint_obj/recycling_bin_spawnpoint_obj.yy",},},
