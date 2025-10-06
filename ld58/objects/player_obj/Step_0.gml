@@ -88,6 +88,9 @@ if is_drifting
 	var slow_down = drift_percent * 0.001
 	var multiplier = 1 - slow_down
 	move_speed *= multiplier
+    
+    part_type_direction(drift_part, direction, direction, 0, 0)
+    part_particles_create(drift_particle_sys, x, y, drift_part, 1)
 }
 else
 {

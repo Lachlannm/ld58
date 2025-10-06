@@ -111,6 +111,7 @@
     {"id":{"name":"arrow_spr","path":"sprites/arrow_spr/arrow_spr.yy",},},
     {"id":{"name":"bg_tile_spr","path":"sprites/bg_tile_spr/bg_tile_spr.yy",},},
     {"id":{"name":"city_streets_tiles","path":"sprites/city_streets_tiles/city_streets_tiles.yy",},},
+    {"id":{"name":"drift","path":"sprites/drift/drift.yy",},},
     {"id":{"name":"garbage_collider","path":"sprites/garbage_collider/garbage_collider.yy",},},
     {"id":{"name":"garbage_plant_spr","path":"sprites/garbage_plant_spr/garbage_plant_spr.yy",},},
     {"id":{"name":"garbage_spr","path":"sprites/garbage_spr/garbage_spr.yy",},},
