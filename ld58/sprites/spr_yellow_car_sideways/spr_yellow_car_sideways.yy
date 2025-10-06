@@ -3,8 +3,8 @@
   "%Name":"spr_yellow_car_sideways",
   "bboxMode":0,
   "bbox_bottom":29,
-  "bbox_left":5,
-  "bbox_right":60,
+  "bbox_left":0,
+  "bbox_right":63,
   "bbox_top":3,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"e444ff26-cb6d-405d-80aa-fef331d848d9","name":"e444ff26-cb6d-405d-80aa-fef331d848d9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"553aa801-c8b5-445b-98c1-997c98514d55","name":"553aa801-c8b5-445b-98c1-997c98514d55","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":32,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"2881f3f7-04fc-4536-93d9-3807457c1d58","blendMode":0,"displayName":"default","isLocked":false,"name":"2881f3f7-04fc-4536-93d9-3807457c1d58","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7c187527-6d31-449a-8da8-4f4b739e23a6","blendMode":0,"displayName":"default","isLocked":false,"name":"7c187527-6d31-449a-8da8-4f4b739e23a6","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_yellow_car_sideways",
   "nineSlice":null,
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e444ff26-cb6d-405d-80aa-fef331d848d9","path":"sprites/spr_yellow_car_sideways/spr_yellow_car_sideways.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"6a2f3da1-8e61-4e3c-9870-619fa84d11fe","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"553aa801-c8b5-445b-98c1-997c98514d55","path":"sprites/spr_yellow_car_sideways/spr_yellow_car_sideways.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"d9811538-f201-41f6-9374-c4583bcc99f4","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

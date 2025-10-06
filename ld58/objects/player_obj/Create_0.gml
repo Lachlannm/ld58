@@ -44,6 +44,17 @@ instance_create_layer(0,0,layer,camera_obj)
 //garbage collector
 collector = instance_create_layer(x,y,layer,garbage_collector_obj)
 
+function take_damage(_value)
+{
+	if(can_crash_again)
+	{
+		damage += _value
+		audio_play_sound(collision_sfx, 0, false)
+		alarm[0] = 100
+		can_crash_again = false
+	}	
+}
+
 function increment_garbage(_value)
 {
 	if garbage_stored+_value <= max_garbage

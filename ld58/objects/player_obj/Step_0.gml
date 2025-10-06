@@ -109,12 +109,7 @@ if(place_meeting(x+lengthdir_x(move_speed,speed_dir),y+lengthdir_y(move_speed,sp
 {
 	direction -= rotation
 	image_angle = direction
-	if(can_crash_again)
-	{
-		damage += 1
-		alarm[0] = 100
-		can_crash_again = false
-	}
+	take_damage(1)
 	move_speed = 0
 }
 

@@ -1,5 +1,5 @@
 if(!other.colliding)
 {
-	damage += 1
+	take_damage(1)
 	other.colliding = true
 }

@@ -17,7 +17,8 @@ enum CarState
 	Idle_Origin,
 	Advancing,
 	Idle_Advanced,
-	Retreating
+	Retreating,
+	Dead
 }
 
 car_state = CarState.Idle_Origin

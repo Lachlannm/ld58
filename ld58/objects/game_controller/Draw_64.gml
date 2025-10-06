@@ -1,5 +1,11 @@
 draw_surface_ext(application_surface,0,0,1,1,0,colour,1)
 
+for (var i = 0; i < player_obj.max_damage - player_obj.damage;i++)
+{
+	draw_sprite_ext(health_spr,0,i*64,0,2,2,0,c_white,1)
+}
+
+
 var center_screen_x = view_get_wport(0)/2
 var center_screen_y = view_get_hport(0)/2
 
