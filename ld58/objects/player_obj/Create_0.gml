@@ -24,18 +24,8 @@ max_turn_amount = 35
 
 rotation_looped = 0
 
-move_drag = gas_strength/max_speed
-drag = 0.005
-
-drift_amount = 0
-drift_rate = 0.2
-drift_start_threshold = 1.8
-drift_start_speed = 2.1
-drift_stop_threshold = 1.7
-drift_stop_speed = 1.8
-drift_exit_boost = 0.3
-is_drifting = false
-centripital = 0
+tire_max_correction_force = 1000
+tire_max_correction_force_sliding = 1000
 
 drift_particle_sys = part_system_create()
 part_system_depth(drift_particle_sys, 150)

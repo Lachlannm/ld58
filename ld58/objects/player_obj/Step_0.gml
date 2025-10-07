@@ -14,7 +14,7 @@ else
 
 if brake_pressed
 {
-	brake_amount = clamp(brake_amount+brake_rate,0,1)	
+	brake_amount = clamp(brake_amount+brake_rate,0,1)
 	if !brake_held
 	{
 		audio_play_sound(brake_sfx,0,false)
@@ -67,7 +67,7 @@ physics_apply_local_force(0, 0, force_total, 0)
 
 if keyboard_check_pressed(vk_space)
 {
-	collect_garbage()	
+	collect_garbage()
 }
 collector.x = x
 collector.y = y
