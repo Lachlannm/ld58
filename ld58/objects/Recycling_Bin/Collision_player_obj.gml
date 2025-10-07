@@ -1,7 +1,9 @@
 if !broken
 {
-	sprite_index = spr_destroyed_recycling_bin
+    if alarm_get(0) == -1
+    {
+        alarm_set(0, 100)
+    }
 	broken = true
 	other.take_damage(1)
-	instance_destroy()
 }

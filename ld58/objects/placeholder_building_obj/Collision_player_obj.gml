@@ -1,9 +1,4 @@
-var dir = point_direction(x,y,other.x,other.y)
-var colliding = true
-
-while colliding
+if other.phy_speed > 0.3
 {
-	other.x += lengthdir_x(0.1,dir)
-	other.y += lengthdir_y(0.1,dir)
-	colliding = place_meeting(x,y,other)
+    other.take_damage(1)
 }
