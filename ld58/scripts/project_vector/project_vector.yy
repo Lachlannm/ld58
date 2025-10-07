@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"project_vector",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"project_vector",
+  "parent":{
+    "name":"utility",
+    "path":"folders/Scripts/utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
