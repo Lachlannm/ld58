@@ -1,5 +1,6 @@
 draw_self()
 
+physics_draw_debug()
 draw_text(x-100,y,"phy_speed = " + string(phy_speed))
 draw_text(x-100,y+20,"force_total = " + string(force_total))
 draw_text(x-100,y+40,"gas_amount = " + string(gas_amount))
