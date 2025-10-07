@@ -61,8 +61,20 @@ force_total = (gas_amount*gas_strength - brake_amount*brake_strength) * 5000
 physics_apply_local_force(0, 0, force_total, 0)
 
 
+// Get the horizontal movement //
 
-//physics_apply_force(x, y, 50, 0)
+// First, rotate the current direction 90 degrees & get it's vector
+var rotated_x = lengthdir_x(phy_speed, phy_rotation+90)
+var rotated_y = lengthdir_y(phy_speed, phy_rotation+90)
+
+// Then, project the current velocity onto that
+var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, rotated_x, rotated_y)
+
+var needed_velocity_x = -projected_velocity[0]
+var needed_velocity_y = -projected_velocity[1]
+
+// Apply impulse for now?
+physics_apply_impulse(0, 0, needed_velocity_x, needed_velocity_y)
 
 
 if keyboard_check_pressed(vk_space)
