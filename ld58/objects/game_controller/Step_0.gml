@@ -9,6 +9,10 @@ if time > 0
 		
 	}
 }
+else 
+{
+    end_day()
+}
 
 depot_distance = point_distance(player_obj.x,player_obj.y,dropoff_obj.x,dropoff_obj.y)
 depot_direction = point_direction(player_obj.x,player_obj.y,dropoff_obj.x,dropoff_obj.y)
@@ -37,6 +41,19 @@ if keyboard_check_pressed(vk_escape)
 if keyboard_check_pressed(vk_f11)
 {
 	window_set_fullscreen(!window_get_fullscreen())	
+}
+
+if keyboard_check_pressed(ord("M"))
+{
+	global.enable_sound = !global.enable_sound
+	if !global.enable_sound
+	{
+		audio_set_master_gain(0,0)
+	}
+	else
+	{
+		audio_set_master_gain(0,1)
+	}
 }
 
 //console

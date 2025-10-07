@@ -1,1 +1,1 @@
-object_spawn(recycling_bin_spawnpoint_obj, total_recycling_bin_ratio, Recycling_Bin);
+object_spawn(recycling_bin_spawnpoint_obj, 0.2 + global.day*0.1, Recycling_Bin);

@@ -43,7 +43,7 @@ max_garbage = 20
 
 damage = 0
 max_damage = 6
-
+can_crash_again = true
 // create the camera that follows the player
 instance_create_layer(0,0,layer,camera_obj)
 
@@ -59,6 +59,7 @@ function take_damage(_value)
 		alarm[0] = 100
 		can_crash_again = false
 	}	
+	move_speed /= 2
 }
 
 function increment_garbage(_value)
@@ -83,6 +84,7 @@ function collect_garbage()
 		var inst = ds_list_find_value(list,i)
 		if increment_garbage(inst.collection_value)
 		{
+			audio_play_sound(pickup_sfx,0,false)
 			instance_destroy(inst)	
 		}
 	}
@@ -93,3 +95,9 @@ brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
 gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
 max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
 max_speed = global.upgrade_speed.speed_level[global.upgrade_speed.level]
+max_garbage = global.upgrade_capacity.capacity_level[global.upgrade_capacity.level]
+max_turn_amount = global.upgrade_turn_radius.turn_level[global.upgrade_turn_radius.level]
+emitter = audio_emitter_create()
+engine_sound = audio_play_sound_on(emitter,truck_sfx,true,0)
+brake_held = false
+alarm_set(1,2)

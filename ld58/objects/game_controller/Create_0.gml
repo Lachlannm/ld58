@@ -1,9 +1,10 @@
+global.garbage_deposited = 0
 if !audio_is_playing(music)
 {
 	audio_play_sound(music,0,true)
 }
 //Create some garbage
-total_garbage_ratio = 0.75
+total_garbage_ratio = 0.2 + global.day*0.1
 
 garbage_layer = layer_create(-100,"garbage_lyr")
 garbage_spawnpoints = []
@@ -156,5 +157,20 @@ function command_check(cmd_arg,input_arg)
 		case "any" :
 			// any value is accepted, so assume it is ok to use
 			return input_arg
+	}
+}
+
+function end_day()
+{
+	global.cash += global.garbage_deposited * 5
+	global.garbage_deposited = 0
+	global.day += 1
+	if player_obj.damage == player_obj.max_damage
+	{
+		room_goto(game_over)
+	}
+	else
+	{
+		room_goto(upgrade_room)
 	}
 }

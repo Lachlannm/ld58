@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_recycling_bin",
-    "path":"sprites/spr_recycling_bin/spr_recycling_bin.yy",
+    "name":"light_spr",
+    "path":"sprites/light_spr/light_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,

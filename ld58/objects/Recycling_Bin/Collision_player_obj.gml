@@ -1,7 +1,7 @@
 if !broken
 {
 	sprite_index = spr_destroyed_recycling_bin
-	audio_play_sound(collision_sfx, 0, false)
 	broken = true
 	other.take_damage(1)
+	instance_destroy()
 }

@@ -6,21 +6,23 @@
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_2AE0FFCB","path":"rooms/game_over/game_over.yy",},
     {"name":"inst_292B96E6","path":"rooms/game_over/game_over.yy",},
     {"name":"inst_47CC7D0C","path":"rooms/game_over/game_over.yy",},
   ],
   "isDnd":false,
   "layers":[
-    {"$GMRInstanceLayer":"","%Name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v2","%Name":"inst_2AE0FFCB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2AE0FFCB","objectId":{"name":"game_over_obj","path":"objects/game_over_obj/game_over_obj.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":672.0,"y":352.0,},
-        {"$GMRInstance":"v2","%Name":"inst_292B96E6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_292B96E6","objectId":{"name":"crying_man_obj","path":"objects/crying_man_obj/crying_man_obj.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":800.0,"y":384.0,},
+    {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
+        {"$GMRTextItem":"v2","%Name":"text_5EF40498","alignment":0,"charSpacing":0.0,"colour":4294967295,"fontId":{"name":"Font1","path":"fonts/Font1/Font1.yy",},"frameH":0.0,"frameW":0.0,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"lineSpacing":0.0,"name":"text_5EF40498","paragraphSpacing":0.0,"resourceType":"GMRTextItem","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":3.0,"text":"Your Truck Broke!!!","wrap":false,"x":736.0,"xorigin":0.0,"y":416.0,"yorigin":0.0,},
+      ],"depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Assets_1","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v2","%Name":"inst_292B96E6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_292B96E6","objectId":{"name":"crying_man_obj","path":"objects/crying_man_obj/crying_man_obj.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.75,"scaleY":1.75,"x":832.0,"y":512.0,},
         {"$GMRInstance":"v2","%Name":"inst_47CC7D0C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_47CC7D0C","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"properties":[
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Text","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Play Again",},
-            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button_Release","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"start_game",},
-          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.0,"x":704.0,"y":608.0,},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Text","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"End Day",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button_Release","path":"objects/Button/Button.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"upgrade_test_button",},
+            {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"link":"io.gamemaker.userinterface-0.1.5","name":"Button","path":"objects/Button/Button.yy",},"propertyId":{"link":"io.gamemaker.userinterface-0.1.5","name":"sprite_index","path":"objects/Button/Button.yy",},"resource":{"link":"io.gamemaker.uipanelsglossy-1.0.0","name":"Glossy_Grey_Long_Square","path":"sprites/Glossy_Grey_Long_Square/Glossy_Grey_Long_Square.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Glossy_Blue_Long_Square",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.5,"scaleY":1.0,"x":960.0,"y":832.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_bg_game_over","path":"sprites/spr_bg_game_over/spr_bg_game_over.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
+    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":-1.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"ground_spr","path":"sprites/ground_spr/ground_spr.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],
   "name":"game_over",
   "parent":{
@@ -38,10 +40,10 @@
   "resourceType":"GMRoom",
   "resourceVersion":"2.0",
   "roomSettings":{
-    "Height":768,
+    "Height":1080,
     "inheritRoomSettings":false,
     "persistent":false,
-    "Width":1366,
+    "Width":1920,
   },
   "sequenceId":null,
   "views":[

@@ -1,1 +1,1 @@
-object_spawn(upndown_car_spawnpoint_obj, total_upndown_car_ratio, Car_Static_Upndown);
+object_spawn(upndown_car_spawnpoint_obj, 0.2 + global.day*0.1, Car_Static_Upndown);

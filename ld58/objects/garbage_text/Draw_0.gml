@@ -1,0 +1,1 @@
+draw_text_transformed(x,y,string("Deposited {0} Garbage",amount),0.3,0.3,0)

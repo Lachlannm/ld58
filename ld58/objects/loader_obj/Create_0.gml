@@ -2,7 +2,19 @@
 randomize()
 load_command_data()
 
+enum CarState
+{
+	Idle_Origin = 0,
+	Advancing,
+	Idle_Advanced,
+	Retreating,
+	Dead
+}
+
 global.cash = 0
+global.garbage_deposited = 0
+global.day = 0
+global.enable_sound = true
 // Upgrade levels initialize
 
 
@@ -26,6 +38,15 @@ global.upgrade_speed = {
 	cost: 50,
 	level: 0,}
 	
+global.upgrade_capacity = {
+	capacity_level: [20, 25, 30, 35],
+	cost: 50,
+	level: 0,}
+	
+global.upgrade_turn_radius = {
+	turn_level: [35, 37, 39, 41],
+	cost: 50,
+	level: 0,}
 
 	
 

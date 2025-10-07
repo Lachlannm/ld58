@@ -1,6 +1,6 @@
 //Populate (total_ratio * 100)% of the given spawn points at random
 function object_spawn(spawnpoint_obj, total_ratio, object_to_spawn){
-    var spawnpoints = []
+    var spawnpoints = array_create(0)
     var num_spawnpoints = instance_number(spawnpoint_obj)
     var num_to_spawn = floor(total_ratio * num_spawnpoints)
     
@@ -14,6 +14,6 @@ function object_spawn(spawnpoint_obj, total_ratio, object_to_spawn){
     for(var i = 0; i < num_to_spawn; i++)
     {
         var spawnpoint = array_pop(spawnpoints)
-        instance_create_layer(spawnpoint.x, spawnpoint.y, spawnpoint.layer, object_to_spawn)
+		instance_create_layer(spawnpoint.x, spawnpoint.y, spawnpoint.layer, object_to_spawn)
     }
 }

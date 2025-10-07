@@ -8,8 +8,8 @@
   "name":"cash_label",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"upgrade room",
+    "path":"folders/Objects/upgrade room.yy",
   },
   "parentObjectId":null,
   "persistent":false,

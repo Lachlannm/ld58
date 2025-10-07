@@ -1,25 +1,25 @@
 switch(car_state)
 {
-	case CarState.Idle_Origin:
+	case 0:
 		speed = max_speed
 		direction = forward_direction
-		car_state = CarState.Advancing
+		car_state = 1
 		alarm[0] = alarm_moving_time
 		break
-	case CarState.Advancing:
+	case 1:
 		speed = 0
-		car_state = CarState.Idle_Advanced
+		car_state = 2
 		alarm[0] = irandom_range(alarm_min_road, alarm_max_road)
 		break
-	case CarState.Idle_Advanced:
+	case 2:
 		speed = max_speed
 		direction = reverse_direction
-		car_state = CarState.Retreating
+		car_state = 3
 		alarm[0] = alarm_moving_time
 		break
-	case CarState.Retreating:
+	case 3:
 		speed = 0
-		car_state = CarState.Idle_Origin
+		car_state = 0
 		alarm[0] = irandom_range(alarm_min_parking, alarm_max_parking)
 		break
 }

@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.056848,
+  "duration":1.0109524,
   "name":"truck_sfx",
   "parent":{
     "name":"sfx",

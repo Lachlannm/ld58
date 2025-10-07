@@ -20,3 +20,6 @@ var experimental_sprite_rotation = ((direction + 22.5) % 45) - 22.5
 //draw_sprite(spr_directional_truck,sprite_direction_id,x,y-40)
 draw_sprite_ext(spr_directional_truck,sprite_direction_id,x+lengthdir_x(20,direction),y+lengthdir_y(20,direction),1,1,experimental_sprite_rotation,c_white,1)
 draw_sprite_ext(spr_directional_truck,sprite_direction_id,x+lengthdir_x(20,direction),y+lengthdir_y(20,direction),1,1,experimental_sprite_rotation,c_red,alarm_get(0)/100)
+
+//draw_sprite_ext(player_truck_alt,0,x,y,1,1,direction,c_white,1)
+//draw_sprite_ext(player_truck_alt,0,x,y,1,1,direction,c_red,alarm_get(0)/100)

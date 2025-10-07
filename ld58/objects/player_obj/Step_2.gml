@@ -1,4 +1,4 @@
 if(damage >= max_damage)
 {
-	room_goto(game_over)
+	game_controller.end_day()
 }

@@ -15,12 +15,18 @@ else
 if brake_pressed
 {
 	brake_amount = clamp(brake_amount+brake_rate,0,1)	
+	if !brake_held
+	{
+		audio_play_sound(brake_sfx,0,false)
+	}
+	brake_held = true
 }
 else
 {
 	brake_amount = clamp(brake_amount-brake_rate,0,1)
+	brake_held = false
 }
-
+audio_emitter_pitch(emitter,1+gas_amount*0.5)
 //nathaniel edit
 //move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - move_drag*move_speed*gas_pressed - drag*!gas_pressed,0,max_speed)
 var moving_drag_term = move_drag*move_speed*gas_pressed
@@ -108,17 +114,28 @@ image_angle = direction
 
 var speed_dir = direction+drift_amount
 
-if(place_meeting(x+lengthdir_x(move_speed,speed_dir),y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj) and move_speed > 0.3)
+var collided = false
+if !place_meeting(x+lengthdir_x(move_speed,speed_dir),y,placeholder_building_obj)
 {
-	direction -= rotation
-	image_angle = direction
-	take_damage(1)
-	move_speed = 0
+	x += lengthdir_x(move_speed,speed_dir)
 }
-
-x += lengthdir_x(move_speed,speed_dir)
-y += lengthdir_y(move_speed,speed_dir)
-
+else
+{
+	collided = true	
+}
+if !place_meeting(x,y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj)
+{
+	y += lengthdir_y(move_speed,speed_dir)
+}
+else
+{
+	collided = true	
+}
+if collided
+{
+	move_speed *= -1
+	take_damage(1)
+}
 collector.x = x
 collector.y = y
 collector.image_angle = image_angle

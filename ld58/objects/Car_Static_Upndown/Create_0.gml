@@ -12,7 +12,7 @@ max_speed = 1
 
 reverse_direction = (forward_direction - 180) % 360;
 
-car_state = global.CarState.Idle_Origin
+car_state = 0
 
 alarm_min_parking = 360
 alarm_max_parking = 600

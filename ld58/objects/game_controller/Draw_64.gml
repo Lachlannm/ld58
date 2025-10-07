@@ -12,8 +12,8 @@ var center_screen_y = view_get_hport(0)/2
 var seconds = string_format_zeroes(floor(time/60)%60,2,0)
 var minutes = string_format_zeroes(floor(time/3600)%60,2,0)
 draw_set_halign(fa_left)
-draw_text(50,50,string("Time Remaining: {0}:{1}",minutes,seconds))
-draw_text(50,75,string("Garbage Remaining: {0}",instance_number(garbage_obj)))
+draw_text(50,75,string("Time Remaining: {0}:{1}",minutes,seconds))
+draw_text(50,100,string("Garbage Stored: {0}/{1}",player_obj.garbage_stored,player_obj.max_garbage))
 
 if console
 {
