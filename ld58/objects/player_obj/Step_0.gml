@@ -27,114 +27,47 @@ else
 	brake_held = false
 }
 audio_emitter_pitch(emitter,1+gas_amount*0.5)
-//nathaniel edit
-//move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - move_drag*move_speed*gas_pressed - drag*!gas_pressed,0,max_speed)
-var moving_drag_term = move_drag*move_speed*gas_pressed
-var drag_term = drag*!gas_pressed
-if move_speed < 0
-{
-	moving_drag_term *= -1
-	drag_term *= -1
-}
-move_speed = clamp(move_speed + gas_amount*gas_strength - brake_amount*brake_strength - moving_drag_term - drag_term,max_reverse_speed,max_speed)
-if abs(move_speed) < 0.01 && !gas_pressed && !brake_pressed {move_speed = 0}
-//end
+
 
 if turning_left
 {
-	turn_amount = clamp(turn_amount+turn_rate,-1,1)
-	move_speed *= 0.999
+	turn_amount += turn_rate
+}
+else if turning_right
+{
+	turn_amount -= turn_rate
 }
 else
 {
-	if turn_amount > 0
-	{
-		turn_amount = max(turn_amount-turn_rate,0)	
-	}
+    turn_amount = move_toward(turn_amount, 0, turn_rate)
+}
+turn_amount = clamp(turn_amount,-1,1)
+
+var rotation = (turn_amount*max_turn_amount*phy_speed)/42
+
+
+phy_rotation -= rotation
+
+rotation_looped = -phy_rotation % 360
+if rotation_looped < 0
+{
+    rotation_looped += 360
 }
 
-if turning_right
-{
-	turn_amount = clamp(turn_amount-turn_rate,-1,1)
-	move_speed *= 0.999
-}
-else
-{
-	if turn_amount < 0
-	{
-		turn_amount = min(turn_amount+turn_rate,0)	
-	}
-}
+image_angle = rotation_looped
 
-var rotation = (turn_amount*max_turn_amount*move_speed)/42
-centripital = move_speed*sin(rotation)
+force_total = (gas_amount*gas_strength - brake_amount*brake_strength) * 5000
 
-if !is_drifting
-{
-	if abs(centripital) > drift_start_threshold and move_speed > drift_start_speed
-	{
-		is_drifting = true
-	}
-}
-else if not ((turning_left or turning_right) and abs(turn_amount) > 0.2) or move_speed < drift_stop_speed
-{
-	if abs(centripital) < drift_stop_threshold or move_speed < drift_stop_speed
-	{
-		is_drifting = false
-		
-		move_speed = max(move_speed, 2.3)
-	}
-}
+physics_apply_local_force(0, 0, force_total, 0)
 
-if is_drifting
-{
-	drift_amount = clamp(drift_amount-rotation*0.5,-80,80)
-	//  Slow down when drifting
-	var drift_percent = abs(drift_amount/80)
-	var slow_down = drift_percent * 0.001
-	var multiplier = 1 - slow_down
-	move_speed *= multiplier
-    
-    part_type_direction(drift_part, direction, direction, 0, 0)
-    part_particles_create(drift_particle_sys, x, y, drift_part, 1)
-}
-else
-{
-	var drift_stop_amount = (1-turn_amount)*3
-	drift_amount = move_toward(drift_amount,0,drift_stop_amount)
-}
+
+
+//physics_apply_force(x, y, 50, 0)
+
 
 if keyboard_check_pressed(vk_space)
 {
 	collect_garbage()	
-}
-
-direction += rotation
-image_angle = direction
-
-var speed_dir = direction+drift_amount
-
-var collided = false
-if !place_meeting(x+lengthdir_x(move_speed,speed_dir),y,placeholder_building_obj)
-{
-	x += lengthdir_x(move_speed,speed_dir)
-}
-else
-{
-	collided = true	
-}
-if !place_meeting(x,y+lengthdir_y(move_speed,speed_dir),placeholder_building_obj)
-{
-	y += lengthdir_y(move_speed,speed_dir)
-}
-else
-{
-	collided = true	
-}
-if collided
-{
-	move_speed *= -1
-	take_damage(1)
 }
 collector.x = x
 collector.y = y

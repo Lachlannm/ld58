@@ -1,3 +1,4 @@
+
 gas_rate = 0.015
 gas_amount = 0
 gas_strength = 0.01
@@ -5,6 +6,8 @@ gas_strength = 0.01
 brake_rate = 0.02
 brake_amount = 0
 brake_strength = 0.008
+
+force_total = 0
 
 move_speed = 0
 max_speed = 3
@@ -18,6 +21,8 @@ turn_speed = 0.1
 turn_amount = 0
 turn_rate = 0.02
 max_turn_amount = 35
+
+rotation_looped = 0
 
 move_drag = gas_strength/max_speed
 drag = 0.005
