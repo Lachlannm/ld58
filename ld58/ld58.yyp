@@ -98,6 +98,7 @@
     {"id":{"name":"nat_roomchange","path":"scripts/nat_roomchange/nat_roomchange.yy",},},
     {"id":{"name":"nick_roomchange","path":"scripts/nick_roomchange/nick_roomchange.yy",},},
     {"id":{"name":"object_spawn","path":"scripts/object_spawn/object_spawn.yy",},},
+    {"id":{"name":"project_vector","path":"scripts/project_vector/project_vector.yy",},},
     {"id":{"name":"start_game","path":"scripts/start_game/start_game.yy",},},
     {"id":{"name":"string_format_zeroes","path":"scripts/string_format_zeroes/string_format_zeroes.yy",},},
     {"id":{"name":"to_int64","path":"scripts/to_int64/to_int64.yy",},},
