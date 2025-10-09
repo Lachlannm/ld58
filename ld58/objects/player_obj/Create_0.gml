@@ -43,7 +43,6 @@ max_garbage = 20
 
 damage = 0
 max_damage = 6
-can_crash_again = true
 // create the camera that follows the player
 instance_create_layer(0,0,layer,camera_obj)
 
