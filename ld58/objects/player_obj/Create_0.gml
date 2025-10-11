@@ -39,8 +39,8 @@ drift_strength = 0
 //current_tire_correction_force = 0
 needed_velocity_x = 0
 needed_velocity_y = 0
-rotation_x = 0
-rotation_y = 0
+direction_x = 0
+direction_y = 0
 
 drift_particle_sys = part_system_create()
 part_system_depth(drift_particle_sys, depth+1)
