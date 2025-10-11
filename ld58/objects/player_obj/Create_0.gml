@@ -7,7 +7,7 @@ frames_per_second = 60
 
 gas_rate = 0.015
 gas_amount = 0
-gas_strength = 0.01
+gas_strength = 0.005
 
 brake_rate = 0.02
 brake_amount = 0
@@ -30,8 +30,23 @@ max_turn_amount = 35
 
 rotation_looped = 0
 
+// Max force the tires apply before start slipping to enter drift
 tire_max_correction_force = 7
-tire_max_correction_force_drifting = 5
+// The tire correction force applied while drifting
+// Much lower so it feels like you're slipping
+tire_correction_force_drifting = 3
+// The minimum calculated force you can reach before exiting drift
+tire_min_correction_force_exit_drift = 8
+
+// The rate at which the drift strength increases while drifting (per frame)
+drift_rate = 0.01
+// These are used to tell how the drift affects the gas power
+drift_gas_constant_multiplier = 1
+drift_gas_multiply_by_strength = 2
+
+// This is the boost that is received when exiting,
+//  multiplied by current drift_strength
+drift_exit_impulse = 70
 
 is_drifting = false
 drift_strength = 0
