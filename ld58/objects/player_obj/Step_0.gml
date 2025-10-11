@@ -13,8 +13,8 @@ if gas_pressed
 	gas_amount = clamp(gas_amount+gas_rate,0,1)	
     if is_drifting
     {
-        drift_strength = clamp(drift_strength+0.01, 0, 1)
-        gas_amount *= 1 + drift_strength*2
+        drift_strength = clamp(drift_strength+drift_rate, 0, 1)
+        gas_amount *= drift_gas_constant_multiplier + drift_strength*drift_gas_multiply_by_strength
     }
     else
     {
@@ -94,29 +94,25 @@ if phy_speed > 0
     
     var total_needed_velocity = point_distance(0,0,needed_velocity_x,needed_velocity_y)
     
-    var max_velocity_add = tire_max_correction_force
-    
     if is_drifting
     {
-        max_velocity_add = tire_max_correction_force_drifting
-        
         part_type_direction(drift_part, -phy_rotation, -phy_rotation, 0, 0)
         part_particles_create(drift_particle_sys, x, y, drift_part, 1)
     }
     
-    if total_needed_velocity > max_velocity_add
+    if total_needed_velocity > tire_max_correction_force
     {
         is_drifting = true
         
         // Normalize then scale to max
-        needed_velocity_x = needed_velocity_x / total_needed_velocity * max_velocity_add
-        needed_velocity_y = needed_velocity_y / total_needed_velocity * max_velocity_add
+        needed_velocity_x = needed_velocity_x / total_needed_velocity * tire_correction_force_drifting
+        needed_velocity_y = needed_velocity_y / total_needed_velocity * tire_correction_force_drifting
     }
-    else
+    else if total_needed_velocity < tire_min_correction_force_exit_drift
     {
-        if is_drifting
+        if is_drifting and gas_pressed
         {
-            physics_apply_local_impulse(0, 0, drift_strength * 70, 0)
+            physics_apply_local_impulse(0, 0, drift_strength * drift_exit_impulse, 0)
         }
         
     	is_drifting = false
