@@ -6,10 +6,20 @@ var turning_right = keyboard_check(ord("D"))
 if gas_pressed
 {
 	gas_amount = clamp(gas_amount+gas_rate,0,1)	
+    if is_drifting
+    {
+        drift_strength = clamp(drift_strength+0.01, 0, 1)
+        gas_amount *= 1 + drift_strength*2
+    }
+    else
+    {
+    	drift_strength = 0
+    }
 }
 else
 {
 	gas_amount = clamp(gas_amount-gas_rate,0,1)
+    drift_strength = 0
 }
 
 if brake_pressed
@@ -61,20 +71,59 @@ force_total = (gas_amount*gas_strength - brake_amount*brake_strength) * 5000
 physics_apply_local_force(0, 0, force_total, 0)
 
 
-// Get the horizontal movement //
+// Get the horizontal movement
 
-// First, rotate the current direction 90 degrees & get it's vector
-var rotated_x = lengthdir_x(phy_speed, phy_rotation+90)
-var rotated_y = lengthdir_y(phy_speed, phy_rotation+90)
+if phy_speed > 0
+{
+    
+    // First, get current rotation vector
+    // Negative since physics rotations are opposite normal rotations
+    rotation_x = lengthdir_x(1, -phy_rotation)
+    rotation_y = lengthdir_y(1, -phy_rotation)
+    
+    // Then, project the current velocity onto that
+    var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, rotation_x, rotation_y)
+    
+    
+    // Then subtract the original velocity to get the required change
+    needed_velocity_x = projected_velocity[0] - phy_linear_velocity_x
+    needed_velocity_y = projected_velocity[1] - phy_linear_velocity_y
+    
+    var total_needed_velocity = point_distance(0,0,needed_velocity_x,needed_velocity_y)
+    
+    var max_velocity_add = tire_max_correction_force
+    
+    if is_drifting
+    {
+        max_velocity_add = tire_max_correction_force_drifting
+        
+        part_type_direction(drift_part, -phy_rotation, -phy_rotation, 0, 0)
+        part_particles_create(drift_particle_sys, x, y, drift_part, 1)
+    }
+    
+    if total_needed_velocity > max_velocity_add
+    {
+        is_drifting = true
+        
+        // Normalize then scale to max
+        needed_velocity_x = needed_velocity_x / total_needed_velocity * max_velocity_add
+        needed_velocity_y = needed_velocity_y / total_needed_velocity * max_velocity_add
+    }
+    else
+    {
+        if is_drifting
+        {
+            physics_apply_local_impulse(0, 0, drift_strength * 70, 0)
+        }
+        
+    	is_drifting = false
+    }
+    
+    physics_apply_force(x, y, needed_velocity_x*60, needed_velocity_y*60)
+}
 
-// Then, project the current velocity onto that
-var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, rotated_x, rotated_y)
+physics_apply_torque(clamp(-phy_angular_velocity*60, -50, 50))
 
-var needed_velocity_x = -projected_velocity[0]
-var needed_velocity_y = -projected_velocity[1]
-
-// Apply impulse for now?
-physics_apply_impulse(0, 0, needed_velocity_x, needed_velocity_y)
 
 
 if keyboard_check_pressed(vk_space)
