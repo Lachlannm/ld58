@@ -7,7 +7,7 @@ frames_per_second = 60
 
 gas_rate = 0.015
 gas_amount = 0
-gas_strength = 0.005
+gas_strength = 0.015
 
 brake_rate = 0.02
 brake_amount = 0
@@ -16,7 +16,6 @@ brake_strength = 0.008
 force_total = 0
 
 move_speed = 0
-max_speed = 3
 
 //nathaniel edit
 max_reverse_speed = -0.5
@@ -31,12 +30,12 @@ max_turn_amount = 35
 rotation_looped = 0
 
 // Max force the tires apply before start slipping to enter drift
-tire_max_correction_force = 7
+tire_max_correction_force = 10
 // The tire correction force applied while drifting
 // Much lower so it feels like you're slipping
-tire_correction_force_drifting = 3
+tire_correction_force_drifting = 7
 // The minimum calculated force you can reach before exiting drift
-tire_min_correction_force_exit_drift = 8
+tire_min_correction_force_exit_drift = 10
 
 // The rate at which the drift strength increases while drifting (per frame)
 drift_rate = 0.01
@@ -118,7 +117,8 @@ function collect_garbage()
 brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
 gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
 max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
-max_speed = global.upgrade_speed.speed_level[global.upgrade_speed.level]
+// To upgrade the speed we need to reduce the linear damping
+phy_linear_damping = global.upgrade_speed.speed_level[global.upgrade_speed.level]
 max_garbage = global.upgrade_capacity.capacity_level[global.upgrade_capacity.level]
 max_turn_amount = global.upgrade_turn_radius.turn_level[global.upgrade_turn_radius.level]
 emitter = audio_emitter_create()

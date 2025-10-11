@@ -34,7 +34,7 @@ global.upgrade_brakes = {
 	level: 0,}
 	
 global.upgrade_speed = {
-	speed_level: [3, 3.5, 4, 4.5],
+	speed_level: [0.05, 0.04, 0.035, 0.03],
 	cost: 50,
 	level: 0,}
 	
