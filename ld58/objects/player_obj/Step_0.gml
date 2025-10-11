@@ -3,6 +3,11 @@ var brake_pressed = keyboard_check(ord("S"))
 var turning_left = keyboard_check(ord("A"))
 var turning_right = keyboard_check(ord("D"))
 
+// Get current direction vector
+// Negative since physics rotations are opposite normal rotations
+direction_x = lengthdir_x(1, -phy_rotation)
+direction_y = lengthdir_y(1, -phy_rotation)
+
 if gas_pressed
 {
 	gas_amount = clamp(gas_amount+gas_rate,0,1)	
@@ -55,7 +60,11 @@ turn_amount = clamp(turn_amount,-1,1)
 
 var rotation = (turn_amount*max_turn_amount*phy_speed)/42
 
-
+if dot_product(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y) < 0
+{
+    // Reversing, so turning is reversed
+    rotation *= -1
+}
 phy_rotation -= rotation
 
 rotation_looped = -phy_rotation % 360
@@ -75,14 +84,8 @@ physics_apply_local_force(0, 0, force_total, 0)
 
 if phy_speed > 0
 {
-    
-    // First, get current rotation vector
-    // Negative since physics rotations are opposite normal rotations
-    rotation_x = lengthdir_x(1, -phy_rotation)
-    rotation_y = lengthdir_y(1, -phy_rotation)
-    
     // Then, project the current velocity onto that
-    var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, rotation_x, rotation_y)
+    var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y)
     
     
     // Then subtract the original velocity to get the required change
