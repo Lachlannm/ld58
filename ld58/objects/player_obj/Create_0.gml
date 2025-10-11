@@ -1,3 +1,9 @@
+physics_mass_properties(phy_mass, 0, 0, phy_inertia)
+
+test_project_vector()
+
+pixels_per_meter = 10
+frames_per_second = 60
 
 gas_rate = 0.015
 gas_amount = 0
@@ -24,11 +30,20 @@ max_turn_amount = 35
 
 rotation_looped = 0
 
-tire_max_correction_force = 1000
-tire_max_correction_force_sliding = 1000
+tire_max_correction_force = 7
+tire_max_correction_force_drifting = 5
+
+is_drifting = false
+drift_strength = 0
+
+//current_tire_correction_force = 0
+needed_velocity_x = 0
+needed_velocity_y = 0
+rotation_x = 0
+rotation_y = 0
 
 drift_particle_sys = part_system_create()
-part_system_depth(drift_particle_sys, 150)
+part_system_depth(drift_particle_sys, depth+1)
 drift_part = part_type_create()
 part_type_sprite(drift_part, drift, false, false, false)
 part_type_life(drift_part, 1000, 1000)
