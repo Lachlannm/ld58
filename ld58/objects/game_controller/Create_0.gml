@@ -4,12 +4,12 @@ if !audio_is_playing(music)
 	audio_play_sound(music,0,true)
 }
 //Create some garbage
-total_garbage_ratio = 0.2 + global.day*0.1
+total_garbage_ratio = clamp(0.2 + global.day*0.1, 0, 1)
 
 garbage_layer = layer_create(-100,"garbage_lyr")
 garbage_spawnpoints = []
 num_garbage_spawnpoints = instance_number(garbage_spawnpoint_obj)
-num_garbage_to_spawn = floor(total_garbage_ratio * num_garbage_spawnpoints)
+num_garbage_to_spawn = clamp(floor(total_garbage_ratio * num_garbage_spawnpoints), 0, num_garbage_spawnpoints)
 
 for(var i = 0; i < num_garbage_spawnpoints; i++)
 {
