@@ -7,11 +7,14 @@ frames_per_second = 60
 
 gas_rate = 0.015
 gas_amount = 0
-gas_strength = 0.015
+gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
+
+// To upgrade the speed we need to reduce the linear damping
+phy_linear_damping = global.upgrade_speed.speed_level[global.upgrade_speed.level]
 
 brake_rate = 0.02
 brake_amount = 0
-brake_strength = 0.008
+brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
 
 force_total = 0
 
@@ -25,7 +28,7 @@ can_crash_again = true
 turn_speed = 0.1
 turn_amount = 0
 turn_rate = 0.02
-max_turn_amount = 35
+max_turn_amount = global.upgrade_turn_radius.turn_level[global.upgrade_turn_radius.level]
 
 rotation_looped = 0
 
@@ -63,10 +66,10 @@ part_type_sprite(drift_part, drift, false, false, false)
 part_type_life(drift_part, 1000, 1000)
 
 garbage_stored = 0
-max_garbage = 20
+max_garbage = global.upgrade_capacity.capacity_level[global.upgrade_capacity.level]
 
 damage = 0
-max_damage = 6
+max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
 // create the camera that follows the player
 instance_create_layer(0,0,layer,camera_obj)
 
@@ -113,14 +116,7 @@ function collect_garbage()
 	}
 	ds_list_destroy(list)
 }
-//Upgrade stats
-brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
-gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
-max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
-// To upgrade the speed we need to reduce the linear damping
-phy_linear_damping = global.upgrade_speed.speed_level[global.upgrade_speed.level]
-max_garbage = global.upgrade_capacity.capacity_level[global.upgrade_capacity.level]
-max_turn_amount = global.upgrade_turn_radius.turn_level[global.upgrade_turn_radius.level]
+
 emitter = audio_emitter_create()
 engine_sound = audio_play_sound_on(emitter,truck_sfx,true,0)
 brake_held = false
