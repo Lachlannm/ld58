@@ -10,8 +10,6 @@ switch(irandom(2))
 
 max_speed = 1
 
-reverse_direction = (forward_direction - 180) % 360;
-
 car_state = 0
 
 alarm_min_parking = 360
