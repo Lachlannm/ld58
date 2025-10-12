@@ -2,7 +2,7 @@
 function object_spawn(spawnpoint_obj, total_ratio, object_to_spawn){
     var spawnpoints = array_create(0)
     var num_spawnpoints = instance_number(spawnpoint_obj)
-    var num_to_spawn = floor(total_ratio * num_spawnpoints)
+    var num_to_spawn = clamp(floor(total_ratio * num_spawnpoints), 0, num_spawnpoints)
     
     for(var i = 0; i < num_spawnpoints; i++)
     {
