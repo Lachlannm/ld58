@@ -3,10 +3,27 @@ function load_command_data(){
 	var w
 	
 	//add commands here
-	#region set_cash
+    
+    #region help
+	w = new command()
+	w.name = "help"
+	w.args = [new command_arg("string","= help"),
+              new command_arg("string","optional command")]
+	w.action = function(args)
+	{
+        if args[1] != "" and ds_map_exists(global.command_data, args[1])
+        {
+            return ds_map_find_value(global.command_data, args[1]).usage_msg()
+        }
+        return get_commands_string()
+	}
+	ds_map_add(global.command_data,w.name,w)
+	#endregion
+    
+	#region give_cash
 	w = new command()
 	w.name = "give_cash"
-	w.args = [new command_arg("string","= set_cash"),
+	w.args = [new command_arg("string","= give_cash"),
 			  new command_arg("int64",">= 0 amount")]
 	w.action = function(args)
 	{
@@ -17,7 +34,7 @@ function load_command_data(){
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
-    #region next_day
+    #region end_day
 	w = new command()
 	w.name = "end_day"
 	w.args = [new command_arg("string","= end_day")]
@@ -28,4 +45,83 @@ function load_command_data(){
 	}
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
+    
+    
+    #region set_invincible
+	w = new command()
+	w.name = "set_invincible"
+	w.args = [new command_arg("string","= set_invincible"),
+			  new command_arg("int64",">= 0 value")]
+	w.action = function(args)
+	{
+        global.invincible = args[1]
+        if args[1]
+        {
+            return string("turned invincibility on")
+        }
+        else
+        {
+            return string("turned invincibility off")
+        }
+	}
+	ds_map_add(global.command_data,w.name,w)
+	#endregion
+    
+    #region set_upgrade
+	w = new command()
+	w.name = "set_upgrade"
+	w.args = [new command_arg("string","= set_upgrade"),
+              new command_arg("string","any upgrade_name"),
+			  new command_arg("int64",">= 0 value")]
+	w.action = function(args)
+	{
+        var upgrade = ds_map_find_value(global.upgrades_by_name, args[1])
+        if is_undefined(upgrade)
+        {
+            return string("Invalid upgrade, possible values: {0}", string_join_ext(", ", ds_map_keys_to_array(global.upgrades_by_name)))
+        }
+        
+        upgrade.level = args[2]
+        player_obj.update_upgrades()
+	}
+	ds_map_add(global.command_data,w.name,w)
+	#endregion
+    
+    #region set_time
+	w = new command()
+	w.name = "set_time"
+	w.args = [new command_arg("string","= set_time"),
+			  new command_arg("string","any mm:ss")]
+	w.action = function(args)
+	{
+        var time_str = args[1]
+        var time_split = string_split(args[1], ":")
+        if array_length(time_split) != 2
+        {
+            return "The time value must be of the form mm:ss"
+        }
+        
+        var minutes = to_int64(time_split[0])
+        var seconds = to_int64(time_split[1])
+        
+        if is_undefined(minutes) or is_undefined(seconds)
+        {
+            return "The minutes and seconds must be numbers"
+        }
+        if minutes < 0 or seconds < 0
+        {
+            return "The minutes and seconds must not be negative"
+        }
+        var minute_ticks = minutes * 60 * 60 // 60 FPS and 60 S/minute
+        var second_ticks = seconds * 60 // 60 FPS
+        game_controller.time = minute_ticks + second_ticks
+	}
+	ds_map_add(global.command_data,w.name,w)
+	#endregion
+}
+
+function get_commands_string()
+{
+    var all_cmds = string_join_ext(", ", ds_map_keys_to_array(global.command_data))
+    return "Available commands: " + all_cmds
 }

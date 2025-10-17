@@ -10,7 +10,7 @@ var center_screen_x = view_get_wport(0)/2
 var center_screen_y = view_get_hport(0)/2
 
 var seconds = string_format_zeroes(floor(time/60)%60,2,0)
-var minutes = string_format_zeroes(floor(time/3600)%60,2,0)
+var minutes = string_format_zeroes(floor(time/3600),2,0)
 draw_set_halign(fa_left)
 draw_text(50,75,string("Time Remaining: {0}:{1}",minutes,seconds))
 draw_text(50,100,string("Garbage Stored: {0}/{1}",player_obj.garbage_stored,player_obj.max_garbage))
@@ -23,9 +23,9 @@ if console
 		cursor = ""	
 	}
 	draw_text(20,1000,"/"+keyboard_string+cursor)
-	for (var i = 0; i < ds_list_size(console_output);i+=1)
+	for (var i = 0; i < ds_list_size(global.console_output);i+=1)
 	{
-		draw_text(20,970-i*30,ds_list_find_value(console_output,i))	
+		draw_text(20,970-i*30,ds_list_find_value(global.console_output,i))	
 	}
 }
 

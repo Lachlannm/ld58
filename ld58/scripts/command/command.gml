@@ -22,6 +22,9 @@ function command() constructor{
 				case "any" :
 					msg += "<" + pattern[1] + "> "
 					break
+				case "optional" :
+					msg += "[" + pattern[1] + "] "
+					break
 			}
 		}
 		return msg
