@@ -20,17 +20,17 @@ depot_direction = point_direction(player_obj.x,player_obj.y,dropoff_obj.x,dropof
 // pause menu
 if keyboard_check_pressed(vk_escape)
 {
-	if menu_state = "none"
+	if menu_state == "none"
 	{
 		global.paused = 1	
 		menu_state = "paused"
 	}
-	else if menu_state = "paused"
+	else if menu_state == "paused"
 	{
 		global.paused = 0	
 		menu_state = "none"
 	}
-	else if menu_state = "console"
+	else if menu_state == "console"
 	{
 		global.paused = 0
 		console = false
@@ -59,7 +59,7 @@ if keyboard_check_pressed(ord("M"))
 //console
 if keyboard_check_pressed(191)
 {
-	if menu_state = "none"
+	if menu_state == "none"
 	{
 		console = true
 		global.paused = 1
@@ -73,20 +73,20 @@ if console
 	cursor_time += 1
 	if keyboard_check_pressed(vk_enter)
 	{
-		ds_list_insert(previous_commands,0,keyboard_string)
-		ds_list_insert(console_output,0,console_command())
+		ds_list_insert(global.previous_commands,0,keyboard_string)
+		ds_list_insert(global.console_output,0,console_command())
 		command_num = -1
 	}
 	
-	if keyboard_check_pressed(vk_up) and ds_list_size(previous_commands) > 0
+	if keyboard_check_pressed(vk_up) and ds_list_size(global.previous_commands) > 0
 	{
-		command_num = clamp(command_num+1,0,ds_list_size(previous_commands)-1)
-		keyboard_string = ds_list_find_value(previous_commands,command_num)
+		command_num = clamp(command_num+1,0,ds_list_size(global.previous_commands)-1)
+		keyboard_string = ds_list_find_value(global.previous_commands,command_num)
 	}
 	
-	if keyboard_check_pressed(vk_down) and ds_list_size(previous_commands) > 0
+	if keyboard_check_pressed(vk_down) and ds_list_size(global.previous_commands) > 0
 	{
-		command_num = clamp(command_num-1,0,ds_list_size(previous_commands)-1)
-		keyboard_string = ds_list_find_value(previous_commands,command_num)
+		command_num = clamp(command_num-1,0,ds_list_size(global.previous_commands)-1)
+		keyboard_string = ds_list_find_value(global.previous_commands,command_num)
 	}
 }

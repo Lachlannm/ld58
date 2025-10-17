@@ -31,8 +31,6 @@ start_colour = c_white
 end_colour = make_color_rgb(70,50,60)
 
 console = false
-console_output = ds_list_create()
-previous_commands = ds_list_create()
 command_num = -1
 cursor_time = 0
 command_list = ds_map_keys_to_array(global.command_data)
@@ -45,7 +43,7 @@ depot_direction = 0
 
 function console_command()
 {
-	var input = string_split(keyboard_string," ")
+	var input = string_split(keyboard_string," ", true)
 	keyboard_string = ""
 	
 	var closest_command = ""
@@ -57,14 +55,16 @@ function console_command()
 	{
 		var cmd = ds_map_find_value(global.command_data,command_list[i])
 		var resolved_inputs = []
-		
+		var has_invalid_param = false
+        
 		//check each given arg to see if it matches the command signature
-		for (var j = 0; j < array_length(input);j+=1)
+		for (var j = 0; j < array_length(input) and j < array_length(cmd.args);j+=1)
 		{
 			var input_arg = input[j]
 			var result = command_check(cmd.args[j],input_arg)
 			if result == undefined
 			{
+                has_invalid_param = true
 				break
 			}
 			else
@@ -72,6 +72,24 @@ function console_command()
 				array_push(resolved_inputs,result)	
 			}
 		}
+        
+        if not has_invalid_param
+        {
+            for (var j = array_length(input); j < array_length(cmd.args); j++)
+            {
+                show_debug_message("extra cmd param pattern: {0}", cmd.args[j].pattern[0])
+                if cmd.args[j].pattern[0] == "optional"
+                {
+                    show_debug_message("Adding empty optional param")
+                    array_push(resolved_inputs,"")
+                }
+                else
+                {
+                	break
+                }
+            }
+        }
+        
 		
 		//check if the number of resolved inputs match the command
 		if array_length(cmd.args) != array_length(resolved_inputs)
@@ -85,7 +103,9 @@ function console_command()
 			}
 			continue
 		}
-		
+        
+		show_debug_message("expected args: {0}", cmd.args)
+		show_debug_message("executing with args: {0}", resolved_inputs)
 		//all arguments are valid, now execute the command
 		var output = cmd.action(resolved_inputs)
 		return output
@@ -98,7 +118,7 @@ function console_command()
 		return cmd.usage_msg()
 	}
 	
-	return "error - incorrect command"
+	return get_commands_string()
 }
 
 function command_check(cmd_arg,input_arg)
@@ -111,15 +131,12 @@ function command_check(cmd_arg,input_arg)
 			{
 				if input_arg == cmd_arg.pattern[1]
 				{
-					return input_arg	
+					return input_arg
 				}
 			}
-			else if cmd_arg.pattern[0] == "any"
+			else if cmd_arg.pattern[0] == "any" or cmd_arg.pattern[0] == "optional"
 			{
-				if input_arg != ""
-				{
-					return input_arg	
-				}
+                return input_arg
 			}
 			return undefined
 		case "int64" : 
