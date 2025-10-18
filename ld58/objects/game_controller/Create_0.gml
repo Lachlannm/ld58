@@ -316,7 +316,6 @@ function reset_tab_completion()
 function end_day()
 {
 	global.cash += global.garbage_deposited * 5
-	global.garbage_deposited = 0
 	global.day += 1
 	if player_obj.damage == player_obj.max_damage
 	{
