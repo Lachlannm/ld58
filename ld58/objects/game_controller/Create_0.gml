@@ -103,7 +103,14 @@ function console_command()
                 if cmd.args[j].pattern[0] == "optional"
                 {
                     show_debug_message("Adding empty optional param")
-                    array_push(resolved_inputs,"")
+                    if cmd.args[j].type == "string"
+                    {
+                        array_push(resolved_inputs,"")
+                    }
+                    else
+                    { // Is a number or int64, defaults to undefined
+                        array_push(resolved_inputs, undefined)
+                    }
                 }
                 else
                 {
@@ -176,6 +183,11 @@ function command_check(cmd_arg,input_arg)
 					return num	
 				}
 			}
+        
+			if cmd_arg.pattern[0] == "any" or cmd_arg.pattern[0] == "optional"
+			{
+                return num
+			}
 			return undefined
 		case "number" :
 			// try to convert to int64
@@ -193,7 +205,7 @@ function command_check(cmd_arg,input_arg)
 				}
 			}
 			
-			if cmd_arg.pattern[0] == "any"
+			if cmd_arg.pattern[0] == "any" or cmd_arg.pattern[0] == "optional"
 			{
                 return num
 			}

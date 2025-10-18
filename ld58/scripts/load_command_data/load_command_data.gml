@@ -120,33 +120,49 @@ function load_command_data(){
 	}
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
+    
+    #region var
+	w = new command()
+	w.name = "var"
+	w.args = [new command_arg("string","= var"),
+			  new command_arg("string","any variable_name"),
+			  new command_arg("number","optional value")]
+	w.action = function(args)
+	{
+        if args[1] == "list"
+        {
+            return "Available variables:\n" +
+                    string_join_ext(", ", ds_map_keys_to_array(global.variable_setters))
+        }
+        
+        var setter_callback = ds_map_find_value(global.variable_setters, args[1])
+        
+        if is_undefined(setter_callback)
+        {
+            return "Invalid variable_name, try 'var list' for a list of all variables"
+        }
+        
+        if is_undefined(args[2])
+        {
+            return "Invalid value, please provide a value"
+        }
+        
+        setter_callback(args[2])
+        
+        return "set variable " + args[1] + " to " + string(args[2])
+	}
+	ds_map_add(global.command_data,w.name,w)
+	#endregion
 }
 
 function cmd_setter(prop_name, set_callback)
 {
-    var w = new command()
-	w.name = "set_" + prop_name
-	w.args = [new command_arg("string","= set_" + prop_name),
-			  new command_arg("number","any value")]
-    
-    var closure = // This is a workaround for no capturing in GML
-    {
-        prop_name: prop_name,
-        set_callback: set_callback
-    }
-    var func = function(args)
-    {
-        set_callback(args[1])
-        return "set " + string(prop_name) + " to " + string(args[1])
-    }
-    w.action = method(closure, func)
-    
-    ds_map_delete(global.command_data, w.name)
-    ds_map_add(global.command_data,w.name,w)
+    ds_map_delete(global.variable_setters, prop_name)
+    ds_map_add(global.variable_setters,prop_name,set_callback)
 }
 
 function get_commands_string()
 {
     var all_cmds = string_join_ext(", ", ds_map_keys_to_array(global.command_data))
-    return "Available commands: " + all_cmds
+    return "Available commands:\n" + all_cmds
 }

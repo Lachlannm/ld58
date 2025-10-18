@@ -7,7 +7,7 @@ function command() constructor{
 	}
 	function usage_msg()
 	{
-		var msg = "usage: "
+		var msg = "Usage:\n"
 		for (var i = 0; i < array_length(self.args);i+=1)
 		{
 			var pattern = self.args[i].pattern
