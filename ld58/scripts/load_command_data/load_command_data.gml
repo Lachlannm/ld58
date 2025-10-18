@@ -82,6 +82,14 @@ function load_command_data(){
             return string("turned invincibility off")
         }
 	}
+    w.tab_complete_list_callback = function(_arg_num)
+    {
+        if _arg_num == 1
+        {
+            return ["1"]
+        }
+        return []
+    }
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
