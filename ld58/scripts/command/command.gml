@@ -3,7 +3,7 @@ function command() constructor{
 	args = []
 	action = function(_args)
 	{
-		return	
+		return	string(array_length(_args))
 	}
 	function usage_msg()
 	{
@@ -17,7 +17,7 @@ function command() constructor{
 					msg += pattern[1] + " "
 					break
 				case ">=" :
-					msg += "<" + pattern[2] + "> "
+					msg += "<" + pattern[2] + " >= " + string(pattern[1]) + "> "
 					break
 				case "any" :
 					msg += "<" + pattern[1] + "> "

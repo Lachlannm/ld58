@@ -6,8 +6,11 @@ pixels_per_meter = 10
 frames_per_second = 60
 
 gas_rate = 0.015
+cmd_setter("gas_rate", function(val) { gas_rate = val })
 gas_amount = 0
+cmd_setter("gas_amount", function(val) { gas_amount = val })
 gas_strength = 0 // Overridden by upgrade
+cmd_setter("gas_strength", function(val) { gas_strength = val })
 
 brake_rate = 0.02
 brake_amount = 0
@@ -29,23 +32,32 @@ max_turn_amount = 0 // Overridden by upgrade
 
 rotation_looped = 0
 
+cmd_setter("linear_damping", function(val) { phy_linear_damping = val })
+
 // Max force the tires apply before start slipping to enter drift
 tire_max_correction_force = 10
+cmd_setter("tire_max_correction_force", function(val) { tire_max_correction_force = val })
 // The tire correction force applied while drifting
 // Much lower so it feels like you're slipping
 tire_correction_force_drifting = 3
+cmd_setter("tire_correction_force_drifting", function(val) { tire_correction_force_drifting = val })
 // The minimum calculated force you can reach before exiting drift
 tire_min_correction_force_exit_drift = 7
+cmd_setter("tire_min_correction_force_exit_drift", function(val) { tire_min_correction_force_exit_drift = val })
 
 // The rate at which the drift strength increases while drifting (per frame)
 drift_rate = 0.01
+cmd_setter("drift_rate", function(val) { drift_rate = val })
 // These are used to tell how the drift affects the gas power
 drift_gas_constant_multiplier = 0.5
+cmd_setter("drift_gas_constant_multiplier", function(val) { drift_gas_constant_multiplier = val })
 drift_gas_multiply_by_strength = 4
+cmd_setter("drift_gas_multiply_by_strength", function(val) { drift_gas_multiply_by_strength = val })
 
 // This is the boost that is received when exiting,
 //  multiplied by current drift_strength
 drift_exit_impulse = 70
+cmd_setter("drift_exit_impulse", function(val) { drift_exit_impulse = val })
 
 is_drifting = false
 drift_strength = 0

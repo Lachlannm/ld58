@@ -170,6 +170,11 @@ function command_check(cmd_arg,input_arg)
 					return num	
 				}
 			}
+			
+			if cmd_arg.pattern[0] == "any"
+			{
+                return num
+			}
 			return undefined
 		case "any" :
 			// any value is accepted, so assume it is ok to use

@@ -89,4 +89,9 @@ if console
 		command_num = clamp(command_num-1,0,ds_list_size(global.previous_commands)-1)
 		keyboard_string = ds_list_find_value(global.previous_commands,command_num)
 	}
+    
+    if keyboard_check_pressed(191)
+    {
+        keyboard_string = string_delete(keyboard_string, string_length(keyboard_string), 1);
+    }
 }

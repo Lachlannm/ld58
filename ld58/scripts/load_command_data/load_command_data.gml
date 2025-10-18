@@ -120,6 +120,29 @@ function load_command_data(){
 	#endregion
 }
 
+function cmd_setter(prop_name, set_callback)
+{
+    var w = new command()
+	w.name = "set_" + prop_name
+	w.args = [new command_arg("string","= set_" + prop_name),
+			  new command_arg("number","any value")]
+    
+    var closure = // This is a workaround for no capturing in GML
+    {
+        prop_name: prop_name,
+        set_callback: set_callback
+    }
+    var func = function(args)
+    {
+        set_callback(args[1])
+        return "set " + string(prop_name) + " to " + string(args[1])
+    }
+    w.action = method(closure, func)
+    
+    ds_map_delete(global.command_data, w.name)
+    ds_map_add(global.command_data,w.name,w)
+}
+
 function get_commands_string()
 {
     var all_cmds = string_join_ext(", ", ds_map_keys_to_array(global.command_data))
