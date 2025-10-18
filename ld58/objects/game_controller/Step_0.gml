@@ -43,7 +43,7 @@ if keyboard_check_pressed(vk_f11)
 	window_set_fullscreen(!window_get_fullscreen())	
 }
 
-if keyboard_check_pressed(ord("M"))
+if keyboard_check_pressed(ord("M")) and not console
 {
 	global.enable_sound = !global.enable_sound
 	if !global.enable_sound
