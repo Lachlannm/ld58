@@ -71,7 +71,7 @@ if keyboard_check_pressed(191)
 if console
 {
 	cursor_time += 1
-	if keyboard_check_pressed(vk_enter)
+	if keyboard_check_pressed(vk_enter) and array_length(tab_completion_list) == 0
 	{
 		ds_list_insert(global.previous_commands,0,keyboard_string)
 		ds_list_insert(global.console_output,0,console_command())
@@ -93,5 +93,24 @@ if console
     if keyboard_check_pressed(191)
     {
         keyboard_string = string_delete(keyboard_string, string_length(keyboard_string), 1);
+    }
+    
+    if keyboard_check_pressed(vk_tab)
+    {
+        show_debug_message("TAB PRESSED")
+        if string_pos(" ", keyboard_string) == 0
+        {
+            show_debug_message("NO SPACES")
+            apply_tab_completion(keyboard_string, ds_map_keys_to_array(global.command_data))
+        }
+    }
+    else if tab_completion_list_index != -1 and
+        (keyboard_check_pressed(vk_enter) or keyboard_check_pressed(vk_right) or keyboard_check_pressed(vk_space))
+    {
+        confirm_tab_completion()
+    }
+    else if keyboard_check_pressed(vk_anykey)
+    {
+        reset_tab_completion()
     }
 }

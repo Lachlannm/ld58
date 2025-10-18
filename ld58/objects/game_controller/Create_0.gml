@@ -182,6 +182,71 @@ function command_check(cmd_arg,input_arg)
 	}
 }
 
+tab_completion_partial_value = ""
+tab_completion_current_append = ""
+tab_completion_list = []
+tab_completion_list_index = -1
+function apply_tab_completion(partial_value, possible_values_array)
+{
+    var is_first_tab_complete = tab_completion_list_index == -1
+    
+    tab_completion_partial_value = partial_value
+    show_debug_message("Checking tab complete for: {0}", partial_value)
+    
+    var sorted_values = []
+    array_copy(sorted_values, 0, possible_values_array, 0, array_length(possible_values_array))
+    array_sort(sorted_values, true)
+    
+    for (var i = 0; i < array_length(sorted_values); i++)
+    {
+        if string_starts_with(sorted_values[i], partial_value)
+        {
+            array_push(tab_completion_list, sorted_values[i])
+        }
+    }
+    
+    show_debug_message("sorted_values: {0}", sorted_values)
+    show_debug_message("tab_completion_list: {0}", tab_completion_list)
+    
+    tab_completion_list_index = (tab_completion_list_index + 1) % array_length(tab_completion_list)
+    show_debug_message("current tab complete index: {0}", tab_completion_list_index)
+    show_debug_message("current tab complete: {0}", tab_completion_list[tab_completion_list_index])
+    
+    var starting_index = string_length(tab_completion_partial_value) + 1
+    var completion_value = tab_completion_list[tab_completion_list_index]
+    var sub_length = string_length(completion_value) - (starting_index-1)
+    tab_completion_current_append = string_copy(completion_value, starting_index, sub_length)
+    
+    if array_length(tab_completion_list) == 1
+    {
+        show_debug_message("single tab complete: {0}", tab_completion_list[0])
+        confirm_tab_completion()
+        return
+    }
+    
+    if is_first_tab_complete
+    {
+        values_str = string_join_ext(", ", tab_completion_list)
+        ds_list_insert(global.console_output, 0, "Possible completions:")
+        ds_list_insert(global.console_output, 0, values_str)
+    }
+}
+
+function confirm_tab_completion()
+{
+    keyboard_string += tab_completion_current_append + " "
+    reset_tab_completion()
+}
+
+function reset_tab_completion()
+{
+    show_debug_message("reset_tab_completion")
+    tab_completion_partial_value = ""
+    tab_completion_current_append = ""
+    tab_completion_list = []
+    tab_completion_list_index = -1
+}
+
 function end_day()
 {
 	global.cash += global.garbage_deposited * 5
