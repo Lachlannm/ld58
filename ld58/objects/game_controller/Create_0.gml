@@ -238,24 +238,27 @@ function apply_tab_completion(partial_value, possible_values_array)
         }
     }
     
-    tab_completion_list_index = (tab_completion_list_index + 1) % array_length(tab_completion_list)
-    
-    var starting_index = string_length(tab_completion_partial_value) + 1
-    var completion_value = tab_completion_list[tab_completion_list_index]
-    var sub_length = string_length(completion_value) - (starting_index-1)
-    tab_completion_current_append = string_copy(completion_value, starting_index, sub_length)
-    
-    if array_length(tab_completion_list) == 1
+    if array_length(tab_completion_list) > 0
     {
-        confirm_tab_completion()
-        return
-    }
-    
-    if is_first_tab_complete
-    {
-        values_str = string_join_ext(", ", tab_completion_list)
-        console_add_output("Possible completions:")
-        console_add_output(values_str)
+        tab_completion_list_index = (tab_completion_list_index + 1) % array_length(tab_completion_list)
+        
+        var starting_index = string_length(tab_completion_partial_value) + 1
+        var completion_value = tab_completion_list[tab_completion_list_index]
+        var sub_length = string_length(completion_value) - (starting_index-1)
+        tab_completion_current_append = string_copy(completion_value, starting_index, sub_length)
+        
+        if array_length(tab_completion_list) == 1
+        {
+            confirm_tab_completion()
+            return
+        }
+        
+        if is_first_tab_complete
+        {
+            values_str = string_join_ext(", ", tab_completion_list)
+            console_add_output("Possible completions:")
+            console_add_output(values_str)
+        }
     }
 }
 

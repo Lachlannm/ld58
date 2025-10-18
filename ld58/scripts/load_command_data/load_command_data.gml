@@ -1,6 +1,7 @@
 function load_command_data(){
 	global.command_data = ds_map_create()
     global.variable_setters = ds_map_create()
+    global.variable_getters = ds_map_create()
     
 	var w
 	
@@ -150,13 +151,22 @@ function load_command_data(){
         
         return "Set time remaining to " + minutes_output + ":" + seconds_output
 	}
+    w.tab_complete_list_callback = function(_arg_num)
+    {
+        if _arg_num == 1
+        {
+            return ["100:00"]
+        }
+        return []
+    }
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
     #region var
 	w = new command()
 	w.name = "var"
-	w.description = "Set registered variables to specified values.\n" +
+	w.description = "Set/get registered variable values.\n" +
+                    "If value is not provided, will output current value.\n" +
                     "Use 'var list' to see all registered variables."
 	w.args = [new command_arg("string","= var"),
 			  new command_arg("string","any variable_name|list"),
@@ -170,6 +180,7 @@ function load_command_data(){
         }
         
         var setter_callback = ds_map_find_value(global.variable_setters, args[1])
+        var getter_callback = ds_map_find_value(global.variable_getters, args[1])
         
         if is_undefined(setter_callback)
         {
@@ -178,12 +189,12 @@ function load_command_data(){
         
         if is_undefined(args[2])
         {
-            return "Invalid value, please provide a value"
+            return args[1] + " = " + string(getter_callback())
         }
         
         setter_callback(args[2])
         
-        return "set variable " + args[1] + " to " + string(args[2])
+        return "set variable: " + args[1] + " = " + string(args[2])
 	}
     w.tab_complete_list_callback = function(_arg_num)
     {
@@ -197,10 +208,13 @@ function load_command_data(){
 	#endregion
 }
 
-function cmd_setter(prop_name, set_callback)
+function cmd_setter(prop_name, set_callback, get_callback)
 {
     ds_map_delete(global.variable_setters, prop_name)
     ds_map_add(global.variable_setters,prop_name,set_callback)
+    
+    ds_map_delete(global.variable_getters, prop_name)
+    ds_map_add(global.variable_getters,prop_name,get_callback)
 }
 
 function get_commands_string()
