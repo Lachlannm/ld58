@@ -23,7 +23,8 @@ if console
 		cursor = " "
 	}
 	draw_text(20,1000,"/"+keyboard_string+cursor+tab_completion_current_append)
-	for (var i = 0; i < ds_list_size(global.console_output);i+=1)
+	
+    for (var i = 0; i < ds_list_size(global.console_output);i+=1)
 	{
 		draw_text(20,970-i*30,ds_list_find_value(global.console_output,i))
 	}

@@ -74,7 +74,7 @@ if console
 	if keyboard_check_pressed(vk_enter) and array_length(tab_completion_list) == 0
 	{
 		ds_list_insert(global.previous_commands,0,keyboard_string)
-		ds_list_insert(global.console_output,0,console_command())
+		console_add_output(console_command())
 		command_num = -1
 	}
 	

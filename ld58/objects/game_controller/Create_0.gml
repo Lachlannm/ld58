@@ -41,6 +41,28 @@ global.paused = 0
 depot_distance = 0
 depot_direction = 0
 
+// Somewhat arbitrary / guesswork without fixed width font
+console_char_width = 150
+function console_add_output(output_string)
+{
+    var output_string_lines = string_split(output_string, "\n")
+    for (var output_line_num = 0; output_line_num < array_length(output_string_lines); output_line_num++)
+    {
+        var current_output_string = output_string_lines[output_line_num]
+        
+        var length_remaining = string_length(current_output_string)
+        while (length_remaining > console_char_width)
+        {
+            var current_line = string_copy(current_output_string, 1, console_char_width)
+            ds_list_insert(global.console_output, 0, current_line)
+            
+            length_remaining -= console_char_width
+            current_output_string = string_copy(current_output_string, console_char_width + 1, length_remaining)
+        }
+        ds_list_insert(global.console_output, 0, current_output_string)
+    }
+}
+
 function console_command()
 {
 	var input = string_split(keyboard_string," ", true)
@@ -220,8 +242,8 @@ function apply_tab_completion(partial_value, possible_values_array)
     if is_first_tab_complete
     {
         values_str = string_join_ext(", ", tab_completion_list)
-        ds_list_insert(global.console_output, 0, "Possible completions:")
-        ds_list_insert(global.console_output, 0, values_str)
+        console_add_output("Possible completions:")
+        console_add_output(values_str)
     }
 }
 
