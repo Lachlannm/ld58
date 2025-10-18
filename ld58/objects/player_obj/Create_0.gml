@@ -25,25 +25,28 @@ max_reverse_speed = -0.5
 can_crash_again = true
 //end edit
 
-turn_speed = 0.1
 turn_amount = 0
 turn_rate = 0.02
 max_turn_amount = 0 // Overridden by upgrade
+cmd_setter("max_turn_amount", function(val) { max_turn_amount = val }, function() { return max_turn_amount })
 
 rotation_looped = 0
 
 cmd_setter("linear_damping", function(val) { phy_linear_damping = val }, function() { return phy_linear_damping })
 
 // Max force the tires apply before start slipping to enter drift
-tire_max_correction_force = 10
+tire_max_correction_force = 12
 cmd_setter("tire_max_correction_force", function(val) { tire_max_correction_force = val }, function() { return tire_max_correction_force })
 // The tire correction force applied while drifting
 // Much lower so it feels like you're slipping
-tire_correction_force_drifting = 3
+tire_correction_force_drifting = 6
 cmd_setter("tire_correction_force_drifting", function(val) { tire_correction_force_drifting = val }, function() { return tire_correction_force_drifting })
 // The minimum calculated force you can reach before exiting drift
 tire_min_correction_force_exit_drift = 7
 cmd_setter("tire_min_correction_force_exit_drift", function(val) { tire_min_correction_force_exit_drift = val }, function() { return tire_min_correction_force_exit_drift })
+
+drift_max_turn_amount_multiplier = 0.8
+cmd_setter("drift_max_turn_amount_multiplier", function(val) { drift_max_turn_amount_multiplier = val }, function() { return drift_max_turn_amount_multiplier })
 
 // The rate at which the drift strength increases while drifting (per frame)
 drift_rate = 0.01

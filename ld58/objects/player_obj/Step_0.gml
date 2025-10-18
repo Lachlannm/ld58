@@ -60,6 +60,11 @@ turn_amount = clamp(turn_amount,-1,1)
 
 var rotation = (turn_amount*max_turn_amount*phy_speed)/42
 
+if is_drifting
+{
+    rotation *= drift_max_turn_amount_multiplier
+}
+
 if dot_product(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y) < 0
 {
     // Reversing, so turning is reversed
