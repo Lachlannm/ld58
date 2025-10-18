@@ -9,13 +9,17 @@ function load_command_data(){
     #region help
 	w = new command()
 	w.name = "help"
+	w.description = "Show all commands, or descriptions for specific ones"
 	w.args = [new command_arg("string","= help"),
               new command_arg("string","optional command")]
 	w.action = function(args)
 	{
         if args[1] != "" and ds_map_exists(global.command_data, args[1])
         {
-            return ds_map_find_value(global.command_data, args[1]).usage_msg()
+            var cmd = ds_map_find_value(global.command_data, args[1])
+            return cmd.usage_msg() + "\n" +
+                    "Description:\n" +
+                    cmd.description
         }
         return get_commands_string()
 	}
@@ -33,6 +37,7 @@ function load_command_data(){
 	#region give_cash
 	w = new command()
 	w.name = "give_cash"
+	w.description = "Add cash to your total"
 	w.args = [new command_arg("string","= give_cash"),
 			  new command_arg("int64",">= 0 amount")]
 	w.action = function(args)
@@ -60,8 +65,10 @@ function load_command_data(){
     #region invincible
 	w = new command()
 	w.name = "invincible"
+	w.description = "Set to 1 to make yourself invincible.\n" +
+                    "Damage sound and animation still plays."
 	w.args = [new command_arg("string","= invincible"),
-			  new command_arg("int64",">= 0 value")]
+			  new command_arg("int64","any 0|1")]
 	w.action = function(args)
 	{
         global.invincible = args[1]
@@ -80,6 +87,8 @@ function load_command_data(){
     #region upgrade
 	w = new command()
 	w.name = "upgrade"
+	w.description = "Set the level of any upgrade.\n" +
+                    "Currently the max level is 3."
 	w.args = [new command_arg("string","= upgrade"),
               new command_arg("string","any upgrade_name"),
 			  new command_arg("int64",">= 0 value")]
@@ -94,12 +103,22 @@ function load_command_data(){
         upgrade.level = args[2]
         player_obj.update_upgrades()
 	}
+    w.tab_complete_list_callback = function(_arg_num)
+    {
+        if _arg_num == 1
+        {
+            return ds_map_keys_to_array(global.upgrades_by_name)
+        }
+        return []
+    }
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
     #region time
 	w = new command()
 	w.name = "time"
+	w.description = "Set the current time remaining.\n" +
+                    "Format is in mm:ss, but handles some invalid values still."
 	w.args = [new command_arg("string","= time"),
 			  new command_arg("string","any mm:ss")]
 	w.action = function(args)
@@ -125,6 +144,11 @@ function load_command_data(){
         var minute_ticks = minutes * 60 * 60 // 60 FPS and 60 S/minute
         var second_ticks = seconds * 60 // 60 FPS
         game_controller.time = minute_ticks + second_ticks
+        
+        var seconds_output = string_format_zeroes(floor(game_controller.time/60)%60,2,0)
+        var minutes_output = string_format_zeroes(floor(game_controller.time/3600),2,0)
+        
+        return "Set time remaining to " + minutes_output + ":" + seconds_output
 	}
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
@@ -132,8 +156,10 @@ function load_command_data(){
     #region var
 	w = new command()
 	w.name = "var"
+	w.description = "Set registered variables to specified values.\n" +
+                    "Use 'var list' to see all registered variables."
 	w.args = [new command_arg("string","= var"),
-			  new command_arg("string","any variable_name"),
+			  new command_arg("string","any variable_name|list"),
 			  new command_arg("number","optional value")]
 	w.action = function(args)
 	{
