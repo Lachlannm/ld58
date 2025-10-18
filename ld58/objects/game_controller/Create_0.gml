@@ -1,7 +1,7 @@
 global.garbage_deposited = 0
 if !audio_is_playing(music)
 {
-	audio_play_sound(music,0,true)
+	//audio_play_sound(music,0,true)
 }
 //Create some garbage
 total_garbage_ratio = clamp(0.2 + global.day*0.1, 0, 1)
@@ -226,15 +226,51 @@ function apply_tab_completion(partial_value, possible_values_array)
     
     tab_completion_partial_value = partial_value
     
-    var sorted_values = []
-    array_copy(sorted_values, 0, possible_values_array, 0, array_length(possible_values_array))
-    array_sort(sorted_values, true)
-    
-    for (var i = 0; i < array_length(sorted_values); i++)
+    if array_length(tab_completion_list) == 0
     {
-        if string_starts_with(sorted_values[i], partial_value)
+        // Get all matches
+        var sorted_values = []
+        array_copy(sorted_values, 0, possible_values_array, 0, array_length(possible_values_array))
+        array_sort(sorted_values, true)
+        
+        for (var i = 0; i < array_length(sorted_values); i++)
         {
-            array_push(tab_completion_list, sorted_values[i])
+            if string_starts_with(sorted_values[i], tab_completion_partial_value)
+            {
+                array_push(tab_completion_list, sorted_values[i])
+            }
+        }
+        
+        // Find longest common beginning, to aid in typing more quickly,
+        //  but don't bother if there's only one match
+        if array_length(tab_completion_list) > 1
+        {
+            var longest_shared_start = tab_completion_partial_value
+            var mismatch = false
+            
+            while (not mismatch)
+            {
+                var next_char = string_char_at(tab_completion_list[0], string_length(longest_shared_start)+1)
+                var next_shared_start = longest_shared_start + next_char
+                
+                for (var i = 0; i < array_length(tab_completion_list); i++)
+                {
+                    if not string_starts_with(tab_completion_list[i], next_shared_start)
+                    {
+                        mismatch = true
+                        break
+                    }
+                }
+                
+                if not mismatch
+                {
+                    longest_shared_start = next_shared_start
+                }
+            }
+            
+            var to_add = string_replace(longest_shared_start, tab_completion_partial_value, "")
+            keyboard_string += to_add
+            tab_completion_partial_value = longest_shared_start
         }
     }
     
