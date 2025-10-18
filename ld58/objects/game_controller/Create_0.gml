@@ -1,7 +1,7 @@
 global.garbage_deposited = 0
 if !audio_is_playing(music)
 {
-	//audio_play_sound(music,0,true)
+	audio_play_sound(music,0,true)
 }
 //Create some garbage
 total_garbage_ratio = clamp(0.2 + global.day*0.1, 0, 1)
