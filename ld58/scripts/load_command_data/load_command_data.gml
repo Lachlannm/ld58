@@ -1,5 +1,7 @@
 function load_command_data(){
 	global.command_data = ds_map_create()
+    global.variable_setters = ds_map_create()
+    
 	var w
 	
 	//add commands here
@@ -47,10 +49,10 @@ function load_command_data(){
 	#endregion
     
     
-    #region set_invincible
+    #region invincible
 	w = new command()
-	w.name = "set_invincible"
-	w.args = [new command_arg("string","= set_invincible"),
+	w.name = "invincible"
+	w.args = [new command_arg("string","= invincible"),
 			  new command_arg("int64",">= 0 value")]
 	w.action = function(args)
 	{
@@ -67,10 +69,10 @@ function load_command_data(){
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
-    #region set_upgrade
+    #region upgrade
 	w = new command()
-	w.name = "set_upgrade"
-	w.args = [new command_arg("string","= set_upgrade"),
+	w.name = "upgrade"
+	w.args = [new command_arg("string","= upgrade"),
               new command_arg("string","any upgrade_name"),
 			  new command_arg("int64",">= 0 value")]
 	w.action = function(args)
@@ -87,10 +89,10 @@ function load_command_data(){
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
-    #region set_time
+    #region time
 	w = new command()
-	w.name = "set_time"
-	w.args = [new command_arg("string","= set_time"),
+	w.name = "time"
+	w.args = [new command_arg("string","= time"),
 			  new command_arg("string","any mm:ss")]
 	w.action = function(args)
 	{
