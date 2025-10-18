@@ -97,10 +97,8 @@ if console
     
     if keyboard_check_pressed(vk_tab)
     {
-        show_debug_message("TAB PRESSED")
         if string_pos(" ", keyboard_string) == 0
         {
-            show_debug_message("NO SPACES")
             apply_tab_completion(keyboard_string, ds_map_keys_to_array(global.command_data))
         }
     }
