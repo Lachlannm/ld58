@@ -19,6 +19,14 @@ function load_command_data(){
         }
         return get_commands_string()
 	}
+    w.tab_complete_list_callback = function(_arg_num)
+    {
+        if _arg_num == 1
+        {
+            return ds_map_keys_to_array(global.command_data)
+        }
+        return []
+    }
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
     
@@ -151,6 +159,14 @@ function load_command_data(){
         
         return "set variable " + args[1] + " to " + string(args[2])
 	}
+    w.tab_complete_list_callback = function(_arg_num)
+    {
+        if _arg_num == 1
+        {
+            return ds_map_keys_to_array(global.variable_setters)
+        }
+        return []
+    }
 	ds_map_add(global.command_data,w.name,w)
 	#endregion
 }

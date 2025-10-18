@@ -101,6 +101,27 @@ if console
         {
             apply_tab_completion(keyboard_string, ds_map_keys_to_array(global.command_data))
         }
+        else
+        {
+        	var args = string_split(keyboard_string," ", true)
+            var cmd = ds_map_find_value(global.command_data, args[0])
+            
+            if !is_undefined(cmd)
+            {
+                var arg_index = array_length(args) - 1
+                var arg_value = args[arg_index]
+                if string_ends_with(keyboard_string, " ")
+                {
+                    arg_index += 1
+                    arg_value = ""
+                }
+                var tab_complete_options = cmd.tab_complete_list_callback(arg_index)
+                if array_length(tab_complete_options) > 0
+                {
+                    apply_tab_completion(arg_value, tab_complete_options)
+                }
+            }
+        }
     }
     else if tab_completion_list_index != -1 and
         (keyboard_check_pressed(vk_enter) or keyboard_check_pressed(vk_right) or keyboard_check_pressed(vk_space))
