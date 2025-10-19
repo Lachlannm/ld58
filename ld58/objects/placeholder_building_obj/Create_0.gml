@@ -5,3 +5,5 @@ var sprite_names = [
 	house3_spr
 ];
 sprite_index = sprite_names[irandom_range(0, array_length(sprite_names) - 1)];
+
+layer = layer_get_id("upper_instances")
