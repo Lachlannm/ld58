@@ -31,10 +31,9 @@ if console
 }
 
 //arrow to depot
-if depot_distance > 300
+if depot_distance > 300 and player_obj.garbage_stored > 0
 {
 	draw_set_halign(fa_center)
 	draw_sprite_ext(arrow_spr,0,center_screen_x+lengthdir_x(400,depot_direction),center_screen_y+lengthdir_y(400,depot_direction),1,1,depot_direction,c_white,0.8)
 	draw_text_color(center_screen_x+lengthdir_x(300,depot_direction),center_screen_y+lengthdir_y(300,depot_direction),"Garbage\nDropoff\n"+string(depot_distance/10)+"m",c_white,c_white,c_white,c_white,0.8)
-	
 }

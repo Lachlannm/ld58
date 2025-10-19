@@ -130,7 +130,6 @@ if is_drifting
     
     audio_emitter_gain(drift_emitter, move_toward(current_gain, 1, 0.03))
     
-    part_type_alpha3(drift_part, current_gain, current_gain, 0)
     part_type_direction(drift_part, -phy_rotation, -phy_rotation, 0, 0)
     part_particles_create(drift_particle_sys, x, y, drift_part, 1)
 }
