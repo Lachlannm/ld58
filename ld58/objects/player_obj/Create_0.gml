@@ -75,7 +75,8 @@ drift_particle_sys = part_system_create()
 part_system_depth(drift_particle_sys, depth+1)
 drift_part = part_type_create()
 part_type_sprite(drift_part, drift, false, false, false)
-part_type_life(drift_part, 1000, 1000)
+part_type_alpha3(drift_part, 1, 1, 0);
+part_type_life(drift_part, game_get_speed(gamespeed_fps) * 30, game_get_speed(gamespeed_fps) * 30)
 
 garbage_stored = 0
 max_garbage = 0 // Overridden by upgrade
