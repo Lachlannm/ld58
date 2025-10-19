@@ -14,7 +14,6 @@ enum CarState
 global.cash = 0
 global.garbage_deposited = 0
 global.day = 0
-global.enable_sound = true
 global.invincible = 0
 
 global.console_output = ds_list_create()

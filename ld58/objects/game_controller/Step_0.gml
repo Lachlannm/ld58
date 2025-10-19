@@ -45,15 +45,18 @@ if keyboard_check_pressed(vk_f11)
 
 if keyboard_check_pressed(ord("M")) and not console
 {
-	global.enable_sound = !global.enable_sound
-	if !global.enable_sound
-	{
-		audio_set_master_gain(0,0)
-	}
-	else
-	{
-		audio_set_master_gain(0,1)
-	}
+    if audio_get_master_gain(0) > 0
+    {
+        audio_set_master_gain(0,0)
+    }
+    else
+    {
+    	audio_set_master_gain(0,1)
+    }
+    
+    ini_open("options.ini");
+    ini_write_real("sound", "master_gain", audio_get_master_gain(0) );
+    ini_close();
 }
 
 //console

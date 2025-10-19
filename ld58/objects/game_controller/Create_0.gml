@@ -3,6 +3,11 @@ if !audio_is_playing(music)
 {
 	audio_play_sound(music,0,true)
 }
+ini_open("options.ini");
+audio_set_master_gain(0, ini_read_real("sound", "master_gain", 1));
+ini_close();
+
+
 //Create some garbage
 total_garbage_ratio = clamp(0.2 + global.day*0.1, 0, 1)
 
