@@ -1,3 +1,4 @@
 audio_emitter_free(emitter)
+audio_emitter_free(drift_emitter)
 part_system_destroy(drift_particle_sys)
 part_type_destroy(drift_part)

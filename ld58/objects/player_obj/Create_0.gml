@@ -147,5 +147,10 @@ function collect_garbage()
 
 emitter = audio_emitter_create()
 engine_sound = audio_play_sound_on(emitter,truck_sfx,true,0)
+
+drift_emitter = audio_emitter_create()
+drift_sound = audio_play_sound_on(drift_emitter,drift_sfx,true,0)
+audio_emitter_gain(drift_emitter, 0)
+
 brake_held = false
 alarm_set(1,2)

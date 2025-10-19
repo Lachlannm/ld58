@@ -14,7 +14,6 @@ if gas_pressed
     if is_drifting
     {
         drift_strength = clamp(drift_strength+drift_rate, 0, 1)
-        gas_amount *= drift_gas_constant_multiplier + drift_strength*drift_gas_multiply_by_strength
     }
     else
     {
@@ -42,6 +41,11 @@ else
 	brake_held = false
 }
 audio_emitter_pitch(emitter,1+gas_amount*0.5)
+
+if gas_pressed and is_drifting
+{
+    gas_amount *= drift_gas_constant_multiplier + drift_strength*drift_gas_multiply_by_strength
+}
 
 
 if turning_left
@@ -99,12 +103,6 @@ if phy_speed > 0
     
     var total_needed_velocity = point_distance(0,0,needed_velocity_x,needed_velocity_y)
     
-    if is_drifting
-    {
-        part_type_direction(drift_part, -phy_rotation, -phy_rotation, 0, 0)
-        part_particles_create(drift_particle_sys, x, y, drift_part, 1)
-    }
-    
     if total_needed_velocity > tire_max_correction_force
     {
         is_drifting = true
@@ -124,6 +122,24 @@ if phy_speed > 0
     }
     
     physics_apply_force(x, y, needed_velocity_x*60, needed_velocity_y*60)
+}
+
+if is_drifting
+{
+    part_type_direction(drift_part, -phy_rotation, -phy_rotation, 0, 0)
+    part_particles_create(drift_particle_sys, x, y, drift_part, 1)
+    
+    var current_gain = audio_emitter_get_gain(drift_emitter)
+    
+    audio_emitter_gain(drift_emitter, move_toward(current_gain, 1, 0.03))
+}
+else
+{
+    audio_emitter_gain(drift_emitter, 0)
+    
+    var current_gain = audio_emitter_get_gain(drift_emitter)
+    
+    audio_emitter_gain(drift_emitter, move_toward(current_gain, 0, 0.03))
 }
 
 physics_apply_torque(clamp(-phy_angular_velocity*60, -50, 50))

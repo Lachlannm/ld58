@@ -115,6 +115,7 @@
     {"id":{"name":"zshandi_roomchange","path":"scripts/zshandi_roomchange/zshandi_roomchange.yy",},},
     {"id":{"name":"brake_sfx","path":"sounds/brake_sfx/brake_sfx.yy",},},
     {"id":{"name":"collision_sfx","path":"sounds/collision_sfx/collision_sfx.yy",},},
+    {"id":{"name":"drift_sfx","path":"sounds/drift_sfx/drift_sfx.yy",},},
     {"id":{"name":"dropoff_sfx","path":"sounds/dropoff_sfx/dropoff_sfx.yy",},},
     {"id":{"name":"explode_sfx","path":"sounds/explode_sfx/explode_sfx.yy",},},
     {"id":{"name":"music","path":"sounds/music/music.yy",},},
