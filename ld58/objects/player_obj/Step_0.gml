@@ -1,6 +1,6 @@
-var gas_pressed = keyboard_check(ord("W"))
+var gas_pressed = keyboard_check(ord("W")) or keyboard_check(ord("Z"))
 var brake_pressed = keyboard_check(ord("S"))
-var turning_left = keyboard_check(ord("A"))
+var turning_left = keyboard_check(ord("A")) or keyboard_check(ord("Q"))
 var turning_right = keyboard_check(ord("D"))
 
 // Get current direction vector
