@@ -1,9 +1,15 @@
 physics_mass_properties(phy_mass, 0, 0, phy_inertia)
 
+show_debug_message("Mass: {0}", phy_mass)
+
 test_project_vector()
 
 pixels_per_meter = 10
 frames_per_second = 60
+
+max_speed_meters_per_second = 0 // Overridden by upgrade
+max_speed_dropoff_threshold = 0.7
+max_speed_force = 0 // Overridden by upgrade
 
 gas_rate = 0.015
 cmd_setter("gas_rate", function(val) { gas_rate = val }, function() { return gas_rate })
@@ -15,6 +21,15 @@ cmd_setter("gas_strength", function(val) { gas_strength = val }, function() { re
 brake_rate = 0.02
 brake_amount = 0
 brake_strength = 0 // Overridden by upgrade
+
+// The fraction of gas_strength for reversing
+reverse_fraction = 0.4
+was_brake_pressed = false
+is_reversing = false
+current_relative_direction = 0
+
+// If you brake, and continue to hold the brake, it will eventually timeout
+brake_reverse_timeout = false
 
 force_total = 0
 
@@ -91,14 +106,21 @@ collector = instance_create_layer(x,y,layer,garbage_collector_obj)
 
 function update_upgrades()
 {
-    gas_strength = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
-    brake_strength = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
+    var accel_in_km_per_h_per_s = global.upgrade_acceleration.acceleration_level[global.upgrade_acceleration.level]
+    var accel_in_m_per_s_squared = km_per_hour_to_m_per_second(accel_in_km_per_h_per_s)
+    gas_strength = accel_in_m_per_s_squared * phy_mass // F = ma
+    
+    var max_speed_km_per_h = global.upgrade_speed.speed_level[global.upgrade_speed.level]
+    max_speed_meters_per_second = km_per_hour_to_m_per_second(max_speed_km_per_h)
+    max_speed_force = get_force_for_speed(self, max_speed_meters_per_second)
+    
+    var break_in_km_per_h_per_s = global.upgrade_brakes.brakes_level[global.upgrade_brakes.level]
+    var break_in_m_per_s_squared = km_per_hour_to_m_per_second(break_in_km_per_h_per_s)
+    brake_strength = break_in_m_per_s_squared * phy_mass // F = ma
+    
     max_turn_amount = global.upgrade_turn_radius.turn_level[global.upgrade_turn_radius.level]
     max_garbage = global.upgrade_capacity.capacity_level[global.upgrade_capacity.level]
     max_damage = global.upgrade_armour.armour_level[global.upgrade_armour.level]
-    
-    // To upgrade the speed we need to reduce the linear damping
-    phy_linear_damping = global.upgrade_speed.speed_level[global.upgrade_speed.level]
 }
 update_upgrades()
 
@@ -153,5 +175,4 @@ drift_emitter = audio_emitter_create()
 drift_sound = audio_play_sound_on(drift_emitter,drift_sfx,true,0)
 audio_emitter_gain(drift_emitter, 0)
 
-brake_held = false
 alarm_set(1,2)

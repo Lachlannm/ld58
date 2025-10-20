@@ -8,6 +8,8 @@ var turning_right = keyboard_check(ord("D"))
 direction_x = lengthdir_x(1, -phy_rotation)
 direction_y = lengthdir_y(1, -phy_rotation)
 
+var new_relative_direction = dot_product(direction_x, direction_y, phy_linear_velocity_x, phy_linear_velocity_y)
+
 if gas_pressed
 {
 	gas_amount = clamp(gas_amount+gas_rate,0,1)	
@@ -25,22 +27,63 @@ else
 	gas_amount = clamp(gas_amount-gas_rate,0,1)
     drift_strength = 0
 }
+audio_emitter_pitch(emitter,1+gas_amount*0.5)
 
+var applied_brake_strength = 0
 if brake_pressed
 {
-	brake_amount = clamp(brake_amount+brake_rate,0,1)
-	if !brake_held
-	{
-		audio_play_sound(brake_sfx,0,false)
-	}
-	brake_held = true
+    brake_amount = clamp(brake_amount+brake_rate,0,1)
+    
+    if current_relative_direction > 0
+    {
+        if new_relative_direction <= 0
+        {
+            // Was breaking and have now come to a stop
+            applied_brake_strength = 0
+            phy_linear_velocity_x = 0
+            phy_linear_velocity_y = 0
+            
+            audio_play_sound(brake_sfx,0,false)
+        }
+        else
+        {
+            // Regular breaking
+        	applied_brake_strength = brake_strength
+        }
+        brake_reverse_timeout = false
+        alarm[2] = -1
+    }
+    
+    if current_relative_direction <= 0 and (is_reversing or not was_brake_pressed or brake_reverse_timeout)
+    {
+        // Reversing
+        applied_brake_strength = gas_strength * reverse_fraction
+        is_reversing = true
+        
+        brake_reverse_timeout = false
+        alarm[2] = -1
+    }
+    else
+    {
+        if current_relative_direction <= 0 and alarm[2] == -1
+        {
+            // Timeout after 2 second holding the reverse
+            alarm[2] = game_get_speed(gamespeed_fps) * 2
+        }
+        is_reversing = false
+    }
+    
 }
 else
 {
+    is_reversing = false
 	brake_amount = clamp(brake_amount-brake_rate,0,1)
-	brake_held = false
+    
+    brake_reverse_timeout = false
+    alarm[2] = -1
 }
-audio_emitter_pitch(emitter,1+gas_amount*0.5)
+was_brake_pressed = brake_pressed
+
 
 if gas_pressed and is_drifting
 {
@@ -84,10 +127,40 @@ if rotation_looped < 0
 
 image_angle = rotation_looped
 
-force_total = (gas_amount*gas_strength - brake_amount*brake_strength) * 5000
+var applied_gas_strength = gas_strength
+
+if current_relative_direction >= 0
+{
+    // Account for max speed
+    var speed_in_meters_per_second = pixels_to_meters(point_distance(0,0,phy_linear_velocity_x, phy_linear_velocity_y))
+    
+    var speed_change_threshold = max_speed_dropoff_threshold * max_speed_meters_per_second
+    
+    if speed_in_meters_per_second > speed_change_threshold
+    {
+        // Progression is 0 at the threshold, 1 at max speed
+        var progression = (speed_in_meters_per_second - speed_change_threshold) / (max_speed_meters_per_second - speed_change_threshold)
+        // Lerp between normal gas_strength and max_speed_force
+        applied_gas_strength = (1-progression) * gas_strength + progression * max_speed_force
+    }
+}
+else
+{
+    // Treat accelerating from reverse the same as braking
+    
+	applied_gas_strength = brake_strength
+    
+    if gas_pressed and new_relative_direction >= 0
+    {
+        audio_play_sound(brake_sfx,0,false)
+    }
+}
+
+force_total = (gas_amount*applied_gas_strength - brake_amount*applied_brake_strength)
 
 physics_apply_local_force(0, 0, force_total, 0)
 
+current_relative_direction = new_relative_direction
 
 // Get the horizontal movement
 

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"physics_max_speed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"physics_max_speed",
+  "parent":{
+    "name":"utility",
+    "path":"folders/Scripts/utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

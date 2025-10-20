@@ -25,7 +25,8 @@ global.previous_commands = ds_list_create()
 global.upgrades_by_name = ds_map_create()
 
 global.upgrade_acceleration = {
-	acceleration_level: [0.01, 0.011, 0.012, 0.013],
+    // Acceleration in km/h per second
+	acceleration_level: [6, 6.6, 7.2, 8],
 	cost: 50,
 	level: 0,}
 ds_map_add(global.upgrades_by_name, "acceleration", global.upgrade_acceleration)
@@ -38,12 +39,14 @@ global.upgrade_armour = {
 ds_map_add(global.upgrades_by_name, "armour", global.upgrade_armour)
 	
 global.upgrade_brakes = {
-	brakes_level: [0.008, 0.012, 0.016, 0.020],
+	brakes_level: [20, 25, 30, 35],
 	cost: 50,
 	level: 0,}
+ds_map_add(global.upgrades_by_name, "brakes", global.upgrade_brakes)
 	
 global.upgrade_speed = {
-	speed_level: [0.05, 0.04, 0.035, 0.03],
+    // Max speed in km/h
+	speed_level: [40, 46, 53, 60],
 	cost: 50,
 	level: 0,}
 ds_map_add(global.upgrades_by_name, "speed", global.upgrade_speed)

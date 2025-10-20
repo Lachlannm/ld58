@@ -15,6 +15,10 @@ draw_set_halign(fa_left)
 draw_text(50,75,string("Time Remaining: {0}:{1}",minutes,seconds))
 draw_text(50,100,string("Garbage Stored: {0}/{1}",player_obj.garbage_stored,player_obj.max_garbage))
 
+var speed_m_per_s = point_distance(0,0,player_obj.phy_linear_velocity_x, player_obj.phy_linear_velocity_y) / 10
+
+draw_text(50,125,string("Speed: {0} km/h",speed_m_per_s*3.6))
+
 if console
 {
 	var cursor = "_"
