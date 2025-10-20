@@ -45,6 +45,8 @@ turn_rate = 0.02
 max_turn_amount = 0 // Overridden by upgrade
 cmd_setter("max_turn_amount", function(val) { max_turn_amount = val }, function() { return max_turn_amount })
 
+max_speed_turn_multiplier = 0.7
+
 rotation_looped = 0
 
 cmd_setter("linear_damping", function(val) { phy_linear_damping = val }, function() { return phy_linear_damping })

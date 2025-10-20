@@ -103,20 +103,33 @@ function load_command_data(){
 			  new command_arg("int64",">= 0 value")]
 	w.action = function(args)
 	{
+        if args[1] == "all"
+        {
+            var values = ds_map_values_to_array(global.upgrades_by_name)
+            for (var i = 0; i < array_length(values); i++)
+            {
+                values[i].level = args[2]
+            }
+            player_obj.update_upgrades()
+            return "Set ALL upgrades to level " + string(args[2])
+        }
+        
         var upgrade = ds_map_find_value(global.upgrades_by_name, args[1])
         if is_undefined(upgrade)
         {
-            return string("Invalid upgrade, possible values: {0}", string_join_ext(", ", ds_map_keys_to_array(global.upgrades_by_name)))
+            return string("Invalid upgrade, possible values: all, {0}", string_join_ext(", ", ds_map_keys_to_array(global.upgrades_by_name)))
         }
         
         upgrade.level = args[2]
         player_obj.update_upgrades()
+        
+        return "Set " + args[1] + " upgrade to level " + string(args[2])
 	}
     w.tab_complete_list_callback = function(_arg_num)
     {
         if _arg_num == 1
         {
-            return ds_map_keys_to_array(global.upgrades_by_name)
+            return array_concat(["all"], ds_map_keys_to_array(global.upgrades_by_name))
         }
         return []
     }

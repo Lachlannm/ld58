@@ -8,6 +8,8 @@ var turning_right = keyboard_check(ord("D"))
 direction_x = lengthdir_x(1, -phy_rotation)
 direction_y = lengthdir_y(1, -phy_rotation)
 
+var speed_in_meters_per_second = pixels_to_meters(point_distance(0,0,phy_linear_velocity_x, phy_linear_velocity_y))
+
 var new_relative_direction = dot_product(direction_x, direction_y, phy_linear_velocity_x, phy_linear_velocity_y)
 
 if gas_pressed
@@ -112,6 +114,10 @@ if is_drifting
     rotation *= drift_max_turn_amount_multiplier
 }
 
+var speed_fraction = speed_in_meters_per_second / max_speed_meters_per_second
+var speed_turn_multiplier = (1-speed_fraction) * 1 + speed_fraction * max_speed_turn_multiplier
+rotation *= speed_turn_multiplier
+
 if dot_product(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y) < 0
 {
     // Reversing, so turning is reversed
@@ -132,7 +138,6 @@ var applied_gas_strength = gas_strength
 if current_relative_direction >= 0
 {
     // Account for max speed
-    var speed_in_meters_per_second = pixels_to_meters(point_distance(0,0,phy_linear_velocity_x, phy_linear_velocity_y))
     
     var speed_change_threshold = max_speed_dropoff_threshold * max_speed_meters_per_second
     
