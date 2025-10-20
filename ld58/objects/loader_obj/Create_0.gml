@@ -33,7 +33,7 @@ ds_map_add(global.upgrades_by_name, "acceleration", global.upgrade_acceleration)
 
 
 global.upgrade_armour = {
-	armour_level: [4, 6, 8, 10],
+	armour_level: [6, 8, 10, 12],
 	cost: 50,
 	level: 0,}
 ds_map_add(global.upgrades_by_name, "armour", global.upgrade_armour)
