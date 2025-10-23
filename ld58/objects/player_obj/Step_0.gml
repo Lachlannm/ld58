@@ -9,6 +9,7 @@ direction_x = lengthdir_x(1, -phy_rotation)
 direction_y = lengthdir_y(1, -phy_rotation)
 
 var speed_in_meters_per_second = pixels_to_meters(point_distance(0,0,phy_linear_velocity_x, phy_linear_velocity_y))
+var my_phy_speed = meters_to_pixels(speed_in_meters_per_second) / game_get_speed(gamespeed_fps)
 
 var new_relative_direction = dot_product(direction_x, direction_y, phy_linear_velocity_x, phy_linear_velocity_y)
 
@@ -107,16 +108,16 @@ else
 }
 turn_amount = clamp(turn_amount,-1,1)
 
-var rotation = (turn_amount*max_turn_amount*phy_speed)/42
+var rotation = (turn_amount*max_turn_amount*my_phy_speed)/42
 
-if is_drifting
-{
-    rotation *= drift_max_turn_amount_multiplier
-}
-
-var speed_fraction = speed_in_meters_per_second / max_speed_meters_per_second
-var speed_turn_multiplier = (1-speed_fraction) * 1 + speed_fraction * max_speed_turn_multiplier
-rotation *= speed_turn_multiplier
+//if is_drifting
+//{
+    //rotation *= drift_max_turn_amount_multiplier
+//}
+//
+//var speed_fraction = speed_in_meters_per_second / max_speed_meters_per_second
+//var speed_turn_multiplier = (1-speed_fraction) * 1 + speed_fraction * max_speed_turn_multiplier
+//rotation *= speed_turn_multiplier
 
 if dot_product(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y) < 0
 {
@@ -169,7 +170,7 @@ current_relative_direction = new_relative_direction
 
 // Get the horizontal movement
 
-if phy_speed > 0
+if my_phy_speed > 0
 {
     // Then, project the current velocity onto that
     var projected_velocity = project_vector(phy_linear_velocity_x, phy_linear_velocity_y, direction_x, direction_y)

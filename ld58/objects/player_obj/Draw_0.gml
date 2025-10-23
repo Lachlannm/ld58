@@ -21,7 +21,12 @@ if is_drifting
 //draw_sprite_ext(player_truck_alt,0,x,y,1,1,direction,c_red,alarm_get(0)/100)
 
 
+//var speed_in_meters_per_second = pixels_to_meters(point_distance(0,0,phy_linear_velocity_x, phy_linear_velocity_y))
+//var my_phy_speed = meters_to_pixels(speed_in_meters_per_second) / game_get_speed(gamespeed_fps)
 //draw_text(x-100,y,"phy_speed = " + string(phy_speed))
+//draw_text(x-100,y+20,"my_phy_speed = " + string(my_phy_speed))
+//draw_text(x-100,y+40,"speed_in_m/s = " + string(speed_in_meters_per_second))
+//draw_text(x-100,y+60,"fps = " + string(game_get_speed(gamespeed_fps)))
 //draw_text(x-100,y+20,"force_total = " + string(force_total))
 //draw_text(x-100,y+40,"gas_amount = " + string(gas_amount))
 //draw_text(x,y+40,"damage = " + string(damage))
